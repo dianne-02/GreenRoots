@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Donate – GreenRoots</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">🌱</div>
+        <div>
+          <div class="title">GreenRoots</div>
+          <div class="tagline">Planting a Greener Future</div>
+        </div>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="donate.html" class="active">Donate</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Make a Donation</h1>
+    <form id="donationForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="amount">Donation Amount (USD)</label>
+      <input type="number" id="amount" min="1" required>
+
+      <button type="submit">Donate</button>
+    </form>
+    <p id="thankYou" class="hidden">Thank you for your generous donation! 🌳</p>
+  </main>
+
+  <footer>
+    <p>© 2025 GreenRoots | Growing a Greener Tomorrow</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
