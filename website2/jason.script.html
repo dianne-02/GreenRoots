@@ -1,9 +1,0 @@
-document.getElementById('donationForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const amount = document.getElementById('amount').value;
-  if(name && amount) {
-    document.getElementById('thankYou').classList.remove('hidden');
-    this.reset();
-  }
-});
