@@ -51,13 +51,19 @@ nav a {
   
 }
 
+nav a.active {
+  color: #7bff00; /* bright green to show it’s active */
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
 nav a:hover {
   color: #8dff89;
 }
 
 .hero {
   text-align: center;
-  padding: 120px 20px;
+  padding: 120px 50px;
   background: url("images/lawn_grass.jpg") center center / cover no-repeat;
   color: #ffffff;
   position: relative;
@@ -126,7 +132,7 @@ nav a:hover {
 }
 
 #mission p {
-  color: #307930;
+  color: #3a7d3f;
   font-family: Helvetica, sans-serif;
   max-width: 700px;
   margin: auto;
