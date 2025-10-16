@@ -157,6 +157,7 @@ nav a:hover {
 
 .stats div {
   background: rgb(117, 220, 76);
+  background-image: url("images/leaf-texture.jpg"); /* subtle pattern */
   color: #0b3218;
   padding: 20px;
   border-radius: 10px;
@@ -265,6 +266,227 @@ blockquote span {
   text-align: center;
   padding: 60px 20px;
   background: #e9fbe9;
+}
+/* ===============================
+   ABOUT US PAGE DESIGN
+=================================*/
+body.about-page {
+  background-color: #72ff7251;
+}
+
+.about-hero {
+  background-color: #33772e; /* solid base color */
+  background-image: url("images/leaf-texture.jpg"); /* subtle pattern */
+  background-size: 200px; /* controls how big each pattern repeat looks */
+  background-repeat: repeat;
+  background-blend-mode: overlay; /* makes texture blend gently with the green */
+  text-align: center;
+  color: #e8ffe8;
+  padding: 50px 30px;
+  max-width: 950px;
+  margin: 100px auto 60px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+.about-hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+  animation: fadeInDown 1.3s ease;
+}
+
+.about-hero p {
+  font-size: 1.1rem;
+  font-family: Helvetica, sans-serif;
+  max-width: 700px;
+  margin: 17px auto 0;
+  line-height: 1.7;
+  animation: fadeInUp 1.5s ease;
+}
+
+/* Fade animation */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mission & Values */
+#about-mission {
+  text-align: center;
+  padding: 70px 20px;
+  background: #ecffee;
+}
+
+#about-mission h2 {
+  font-family: Helvetica, sans-serif;
+  font-weight: bolder;
+  color: #004d1a;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.value {
+  background: #33772e;
+  background-image: url("images/leaf-texture.jpg"); /* subtle pattern */
+  color: #ddffc5;
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.value:hover {
+  transform: scale(1.05);
+}
+
+/* Story / Timeline */
+#story {
+  position: relative;
+  text-align: center;
+  padding: 80px 20px;
+  color: #103510;
+  background: url("images/community.jpg") center center / cover no-repeat;
+  overflow: hidden;
+}
+
+/* overlay layer */
+#story::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(94, 128, 94, 0.35); /* soft green overlay */
+  z-index: 0;
+  border-radius: 15px;
+}
+
+/* text container box */
+#story .story-box {
+  background: rgba(255, 255, 255, 0.8); /* soft white box for readability */
+  display: inline-block;
+  padding: 30px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3px); /* adds a subtle frosted-glass effect */
+}
+
+/* keep text above overlays */
+#story * {
+  position: relative;
+  z-index: 1;
+}
+
+#story h2 {
+  color: #135c26;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  border-left: 4px solid #2e7d32;
+  padding-left: 30px;
+  text-align: left;
+}
+
+.timeline-item {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "🌱";
+  position: absolute;
+  left: -26px;
+  top: 0;
+  font-size: 1.5rem;
+}
+
+.timeline-item h4 {
+  color: #1b5e20;
+  margin-bottom: 10px;
+}
+
+.timeline-item p {
+  color: #2f6e2f;
+  line-height: 1.6;
+}
+
+/* Team Section */
+#team {
+  background: #e9fbe9;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+#team h2 {
+  color: #1a3c1a;
+  margin-bottom: 10px;
+}
+
+.team-intro {
+  color: #2f6e2f;
+  max-width: 700px;
+  margin: 0 auto 50px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.team-member {
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.team-member img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.team-member h3 {
+  color: #1b5e20;
+  margin-bottom: 5px;
+}
+
+.team-member p {
+  color: #2f6e2f;
+  font-size: 0.95rem;
 }
 
 footer {
