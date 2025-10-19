@@ -4,45 +4,66 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Donate – GreenRoots</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="STYLE.CSS">
 </head>
 <body>
-  <header>
+ <header>
     <div class="container nav">
       <div class="brand">
-        <div class="logo">🌱</div>
+        <div class="logo"></div>
         <div>
           <div class="title">GreenRoots</div>
-          <div class="tagline">Planting a Greener Future</div>
+          <div class="tagline">Planting a greener future.</div>
         </div>
       </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="projects.html">Projects</a>
-        <a href="donate.html" class="active">Donate</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+     <nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="projects.html">Projects</a>
+  <a href="donate.html" class="active">Donate</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
     </div>
   </header>
 
-  <main class="container">
-    <h1>Make a Donation</h1>
-    <form id="donationForm">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" required>
+  <main class="container donate-page">
+  <h1>Make a Donation</h1>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" required>
+  <form id="donationForm" class="donation-form">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" required>
 
-      <label for="amount">Donation Amount (USD)</label>
-      <input type="number" id="amount" min="1" required>
+    <label for="email">Email</label>
+    <input type="email" id="email" required>
 
-      <button type="submit">Donate</button>
-    </form>
-    <p id="thankYou" class="hidden">Thank you for your generous donation! 🌳</p>
-  </main>
+    <label for="amount">Donation Amount (₱)</label>
+    <input type="number" id="amount" min="1" required>
+
+    <button type="submit">Donate</button>
+  </form>
+
+  <p id="thankYou" class="donation-thankyou hidden">
+    Thank you for your generous donation! 🌳
+  </p>
+
+  <section class="donation-extra">
+    <h2>How Your Donation Helps</h2>
+    <ul>
+      <li>₱100 plants one tree in local reforestation areas.</li>
+      <li>₱500 supports environmental education for students.</li>
+      <li>₱1000 helps maintain a community garden for a month.</li>
+    </ul>
+
+    <h2>Other Ways to Help</h2>
+    <p>
+      You can also volunteer or sponsor a tree-planting event in your community.
+      Together, we can grow a greener tomorrow! 🌱
+    </p>
+  </section>
+</main>
+
 
   <footer>
     <p>© 2025 GreenRoots | Growing a Greener Tomorrow</p>
