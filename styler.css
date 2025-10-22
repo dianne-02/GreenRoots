@@ -238,3 +238,140 @@ footer {
   background: #007806;
   margin-top: 20px;
 }
+/* ================================
+   DONATE PAGE STYLES (UPDATED)
+   ================================ */
+.donate-page {
+  background-color: #f4fff4;
+  color: #034d1e;
+  padding: 60px 20px;
+  min-height: 80vh;
+}
+
+/* Donation Form Box */
+.donation-form-container {
+  background: #ffffff;
+  max-width: 600px;
+  margin: 0 auto 60px;
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 100, 0, 0.15);
+}
+
+.donation-form-container h1 {
+  text-align: center;
+  color: #034d1e;
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.donation-form label {
+  display: block;
+  text-align: left;
+  margin: 15px 0 5px;
+  font-weight: 600;
+  color: #035b22;
+}
+
+.donation-form input[type="text"],
+.donation-form input[type="email"],
+.donation-form input[type="number"],
+.donation-form input[type="tel"],
+.donation-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.donation-form input:focus,
+.donation-form textarea:focus {
+  border-color: #04a82b;
+}
+
+/* Donate button */
+.donation-form button {
+  margin-top: 20px;
+  padding: 10px 25px;
+  background-color: #008000;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.donation-form button:hover {
+  background-color: #04a82b;
+  transform: translateY(-3px);
+}
+
+/* Thank You message */
+.donation-thankyou {
+  text-align: center;
+  margin-top: 25px;
+  color: #034d1e;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.donation-thankyou.hidden {
+  display: none;
+}
+
+/* Info Section (2 Columns) */
+.donation-info {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.donation-column {
+  flex: 1 1 300px;
+  min-width: 280px;
+}
+
+.donation-column h2 {
+  color: #027b32;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  position: relative;
+  padding-left: 28px;
+}
+
+/* Add a subtle leaf background icon beside h2 */
+.donation-column h2::before {
+  content: "";
+  background: url('https://cdn-icons-png.flaticon.com/512/2907/2907391.png') no-repeat center;
+  background-size: 20px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 0;
+  top: 2px;
+}
+
+.donation-column ul {
+  list-style-type: "🌱 ";
+  padding-left: 20px;
+  line-height: 1.6;
+  color: #035b22;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .donation-info {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .donation-form-container {
+    padding: 30px;
+  }
+}
