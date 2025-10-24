@@ -275,7 +275,7 @@ body.about-page {
 }
 
 .about-hero {
-  background-color: #33772e; /* solid base color */
+  background-color: #228B22;/* solid base color */
   background-image: url("images/leaf-texture.jpg"); /* subtle pattern */
   background-size: 200px; /* controls how big each pattern repeat looks */
   background-repeat: repeat;
@@ -340,7 +340,7 @@ body.about-page {
 }
 
 .value {
-  background: #33772e;
+  background: rgba(51, 119, 46, 0.808);
   background-image: url("images/leaf-texture.jpg"); /* subtle pattern */
   color: #ddffc5;
   font-weight: 500;
@@ -706,4 +706,14 @@ footer {
   .map-section iframe {
     aspect-ratio: 1 / 1; /* stays square even on small screens */
   }
+}
+
+footer {
+  text-align: center;
+  color: #ffffff;
+  font-size: small;
+  font-weight: 500;
+  padding: 10px;
+  background: #007806;
+  margin-top: 20px;
 }

@@ -181,8 +181,6 @@ footer{
 }
 
 
-
-
 .project-content {
   padding: 20px;
   text-align: left;
@@ -238,140 +236,191 @@ footer {
   background: #007806;
   margin-top: 20px;
 }
-/* ================================
-   DONATE PAGE STYLES (UPDATED)
-   ================================ */
-.donate-page {
-  background-color: #f4fff4;
-  color: #034d1e;
-  padding: 60px 20px;
-  min-height: 80vh;
+
+/* === DONATE PAGE STYLING === */
+body.donate-page {
+  background-color: #f5fdf5;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
 }
 
-/* Donation Form Box */
-.donation-form-container {
-  background: #ffffff;
-  max-width: 600px;
-  margin: 0 auto 60px;
-  padding: 40px;
+/* Donation Form Container */
+.donate-page .donation-form-container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #cdfcb2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  box-shadow: 0 4px 12px rgba(0, 100, 0, 0.15);
-}
-
-.donation-form-container h1 {
-  text-align: center;
-  color: #034d1e;
-  margin-bottom: 25px;
-  font-size: 2rem;
-}
-
-.donation-form label {
-  display: block;
   text-align: left;
-  margin: 15px 0 5px;
-  font-weight: 600;
-  color: #035b22;
+  transition: transform 0.3s ease;
 }
 
-.donation-form input[type="text"],
-.donation-form input[type="email"],
-.donation-form input[type="number"],
-.donation-form input[type="tel"],
-.donation-form textarea {
+
+.donate-page .donation-form-container h1 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+/* Form Styling */
+.donate-page .donation-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+.donate-page .donation-form input,
+.donate-page .donation-form textarea {
   width: 100%;
   padding: 10px 12px;
+  margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  outline: none;
-  font-size: 15px;
+  border-radius: 4px;
+  font-size: 14px;
   transition: border-color 0.3s ease;
 }
 
-.donation-form input:focus,
-.donation-form textarea:focus {
-  border-color: #04a82b;
+.donate-page .donation-form input:focus,
+.donate-page .donation-form textarea:focus {
+  outline: none;
+  border-color: #4caf50;
 }
 
-/* Donate button */
-.donation-form button {
-  margin-top: 20px;
-  padding: 10px 25px;
-  background-color: #008000;
-  color: #ffffff;
+.donate-page .donation-form button {
+ display: block;          /* makes centering possible */
+  margin: 0 auto;          /* centers the button horizontally */
+  width: 50%;     
+  background-color: #4caf50;
+  color: #fff;
   border: none;
-  border-radius: 6px;
+  padding: 12px;
+  border-radius: 4px;
   font-size: 16px;
-  font-weight: 600;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 20px;
 }
 
-.donation-form button:hover {
-  background-color: #04a82b;
-  transform: translateY(-3px);
+.donate-page .donation-form button:hover {
+  background-color: #388e3c;
+  transform: scale(1.02);
 }
 
-/* Thank You message */
-.donation-thankyou {
-  text-align: center;
-  margin-top: 25px;
-  color: #034d1e;
-  font-size: 1rem;
-  font-weight: 500;
-}
-.donation-thankyou.hidden {
-  display: none;
+/* Info Sections */
+.donate-page .donation-info {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
 }
 
-/* Info Section (2 Columns) */
-.donation-info {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
-  text-align: left;
-}
-
-.donation-column {
-  flex: 1 1 300px;
-  min-width: 280px;
-}
-
-.donation-column h2 {
-  color: #027b32;
-  margin-bottom: 15px;
-  font-size: 1.4rem;
+.donate-page .info-section {
   position: relative;
-  padding-left: 28px;
+  padding: 20px;
+  background-image: url("images/leaf-texture.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-left: 4px solid #4caf50;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
 }
 
-/* Add a subtle leaf background icon beside h2 */
-.donation-column h2::before {
-  content: "";
-  background: url('https://cdn-icons-png.flaticon.com/512/2907/2907391.png') no-repeat center;
-  background-size: 20px;
-  width: 20px;
-  height: 20px;
+.donate-page .info-section:hover {
+  transform: translateY(-4px);
+}
+
+.donate-page .info-section h2 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.donate-page .info-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.donate-page .info-section li {
+  padding-left: 25px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.donate-page .info-section li::before {
+  content: "🌿";
   position: absolute;
   left: 0;
-  top: 2px;
 }
 
-.donation-column ul {
-  list-style-type: "🌱 ";
-  padding-left: 20px;
-  line-height: 1.6;
-  color: #035b22;
+/* Popup */
+.donate-page .popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-/* Responsive Design */
+.donate-page .popup:not(.hidden) {
+  opacity: 1;
+  visibility: visible;
+}
+
+.donate-page .popup-content {
+  background-color: #fff;
+  padding: 25px 35px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.4s ease;
+}
+
+.donate-page .popup-content p {
+  font-size: 18px;
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.donate-page .popup-content button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.donate-page .popup-content button:hover {
+  background-color: #388e3c;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  .donation-info {
-    flex-direction: column;
-    gap: 30px;
+  .donate-page .donation-form-container {
+    margin: 40px 20px;
+    padding: 20px;
   }
 
-  .donation-form-container {
-    padding: 30px;
+  .donate-page .donation-info {
+    grid-template-columns: 1fr;
   }
 }
+

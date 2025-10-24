@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Donate – GreenRoots</title>
   <link rel="stylesheet" href="styler.css">
 </head>
-<body>
+
+<body class="donate-page">
+
   <header>
     <div class="container nav">
       <div class="brand">
@@ -16,7 +18,6 @@
           <div class="tagline">Planting a greener future.</div>
         </div>
       </div>
-
       <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -28,11 +29,9 @@
     </div>
   </header>
 
-  <!-- 🌿 DONATION PAGE MAIN CONTENT -->
-  <main class="container donate-page">
+  <main>
     <section class="donation-form-container">
       <h1>Make a Donation</h1>
-
       <form id="donationForm" class="donation-form">
         <label for="name">Full Name</label>
         <input type="text" id="name" required>
@@ -41,49 +40,66 @@
         <input type="email" id="email" required>
 
         <label for="contact">Contact Number</label>
-        <input type="tel" id="contact" required placeholder="e.g. 09XXXXXXXXX">
+        <input type="tel" id="contact" required>
 
         <label for="amount">Donation Amount (₱)</label>
         <input type="number" id="amount" min="1" required>
 
         <label for="note">Note (optional)</label>
-        <textarea id="note" rows="3" placeholder="Your message or dedication..."></textarea>
+        <textarea id="note" rows="3" placeholder="Add a short message..."></textarea>
 
         <button type="submit">Donate</button>
       </form>
-
-      <p id="thankYou" class="donation-thankyou hidden">
-        Thank you for your generous donation! 🌳
-      </p>
     </section>
 
     <section class="donation-info">
-      <div class="donation-column">
-        <h2>🌿 How Your Donation Helps</h2>
+      <div class="info-section">
+        <h2>How Your Donation Helps 🌿</h2>
         <ul>
-          <li>₱100 plants one tree in reforestation areas.</li>
-          <li>₱500 supports environmental education programs.</li>
-          <li>₱1000 helps sustain a community garden for a month.</li>
-          <li>₱1500 aids in local waste management campaigns.</li>
+          <li>₱100 plants one tree in local reforestation areas.</li>
+          <li>₱500 supports environmental education for students.</li>
+          <li>₱1000 maintains a community garden for a month.</li>
         </ul>
       </div>
 
-      <div class="donation-column">
-        <h2>🍃 Other Ways to Contribute</h2>
+      <div class="info-section">
+        <h2>Other Ways to Contribute 🌱</h2>
         <ul>
-          <li>Join our local tree-planting drives.</li>
-          <li>Volunteer for our eco-awareness events.</li>
-          <li>Sponsor a sapling in your community.</li>
-          <li>Spread our mission on social media!</li>
+          <li>Volunteer at our tree-planting events.</li>
+          <li>Sponsor a sapling drive in your community.</li>
+          <li>Share our advocacy on social media.</li>
         </ul>
       </div>
     </section>
   </main>
 
+  <!-- Popup -->
+  <div id="thankYouPopup" class="popup hidden">
+    <div class="popup-content">
+      <p>🌳 Thank you for your generous donation!</p>
+      <button id="closePopup">Close</button>
+    </div>
+  </div>
+
   <footer>
     <p>© 2025 GreenRoots | Growing a Greener Tomorrow</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script>
+    const form = document.getElementById("donationForm");
+    const popup = document.getElementById("thankYouPopup");
+    const closeBtn = document.getElementById("closePopup");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      popup.classList.remove("hidden");
+      form.reset();
+    });
+
+    closeBtn.addEventListener("click", () => {
+      popup.classList.add("hidden");
+    });
+  </script>
+
 </body>
 </html>
