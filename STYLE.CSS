@@ -320,7 +320,7 @@ body.about-page {
 #about-mission {
   text-align: center;
   padding: 70px 20px;
-  background: #ecffee;
+  background: #b4f5b4;
 }
 
 #about-mission h2 {
@@ -340,7 +340,7 @@ body.about-page {
 }
 
 .value {
-  background: rgba(51, 119, 46, 0.808);
+  background: rgba(51, 119, 46, 0.708);
   background-image: url("images/leaf-texture.jpg"); /* subtle pattern */
   color: #ddffc5;
   font-weight: 500;

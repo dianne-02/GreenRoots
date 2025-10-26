@@ -248,6 +248,7 @@ body.donate-page {
 .donate-page .donation-form-container {
   max-width: 500px;
   margin: 60px auto;
+  margin-bottom: 90px;
   padding: 30px;
   background-color: #cdfcb2;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -267,8 +268,8 @@ body.donate-page {
 .donate-page .donation-form label {
   display: block;
   margin-bottom: 6px;
-  font-weight: 500;
-  color: #333;
+  font-weight: 600;
+  color: #0e602c;
 }
 
 .donate-page .donation-form input,
@@ -292,7 +293,7 @@ body.donate-page {
  display: block;          /* makes centering possible */
   margin: 0 auto;          /* centers the button horizontally */
   width: 50%;     
-  background-color: #4caf50;
+  background-color: #007806;
   color: #fff;
   border: none;
   padding: 12px;
@@ -304,7 +305,7 @@ body.donate-page {
 }
 
 .donate-page .donation-form button:hover {
-  background-color: #388e3c;
+  background-color: #04a82b;
   transform: scale(1.02);
 }
 
@@ -315,7 +316,7 @@ body.donate-page {
   padding: 0 20px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 40px;
+  gap: 90px;
 }
 
 .donate-page .info-section {
@@ -394,7 +395,7 @@ body.donate-page {
 }
 
 .donate-page .popup-content button {
-  background-color: #4caf50;
+  background-color: #007806;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -404,7 +405,7 @@ body.donate-page {
 }
 
 .donate-page .popup-content button:hover {
-  background-color: #388e3c;
+  background-color: #04a82b;
 }
 
 @keyframes fadeIn {
