@@ -267,239 +267,302 @@ blockquote span {
   padding: 60px 20px;
   background: #e9fbe9;
 }
-/* ===============================
-   ABOUT US PAGE DESIGN
-=================================*/
-body.about-page {
-  background-color: #f4f9f4;
+/* ===========================
+   REVAMPED ABOUT US PAGE
+=========================== */
+
+/* 🌿 Split Hero Section */
+.about-hero-split {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background: #dff5df;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 70px auto 60px;
+  max-width: 1000px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-.about-hero {
-  background-color: #228B22;/* solid base color */
-  background-image: url("images/leaf-texture.jpg"); /* subtle pattern */
-  background-size: 200px; /* controls how big each pattern repeat looks */
-  background-repeat: repeat;
-  background-blend-mode: overlay; /* makes texture blend gently with the green */
-  text-align: center;
-  color: #e8ffe8;
-  padding: 50px 30px;
-  max-width: 950px;
-  margin: 100px auto 60px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+.about-hero-split .hero-text {
+  flex: 1;
+  padding: 60px 40px;
+  text-align: left;
+  color: #0d4d0d;
+  animation: fadeInLeft 1.2s ease;
 }
 
-
-.about-hero h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-  animation: fadeInDown 1.3s ease;
+.about-hero-split h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 15px;
 }
 
-.about-hero p {
+.about-hero-split p {
   font-size: 1.1rem;
-  font-family: Helvetica, sans-serif;
-  max-width: 700px;
-  margin: 17px auto 0;
   line-height: 1.7;
-  animation: fadeInUp 1.5s ease;
+  color: #245c24;
 }
 
-/* Fade animation */
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+.about-hero-split .hero-image {
+  flex: 1;
+  min-height: 350px;
+  background: url("images/leaf-texture.jpg") center/cover no-repeat;
+  filter: brightness(0.85);
+  animation: fadeInRight 1.2s ease;
 }
 
-/* Mission & Values */
+@keyframes fadeInLeft {
+  from {opacity:0; transform:translateX(-40px);}
+  to {opacity:1; transform:translateX(0);}
+}
+@keyframes fadeInRight {
+  from {opacity:0; transform:translateX(40px);}
+  to {opacity:1; transform:translateX(0);}
+}
+
+/* 🌱 Full-Width Our Mission & Core Values Section */
 #about-mission {
   text-align: center;
-  padding: 70px 20px;
   background: #b4f5b4;
+  border-radius: 0; /* remove rounded corners for full width */
+  padding: 20px 0;
+  margin: 0;
+  width: 100%;
+  position: relative;
 }
 
 #about-mission h2 {
-  font-family: Helvetica, sans-serif;
-  font-weight: bolder;
-  color: #004d1a;
+  font-size: 1.8rem; /* adjust as you like — try 2.5rem to 3rem */
+  color: #0d4d0d;   /* optional: darker green for contrast */
+  font-weight: 700;  /* make it bold */
+}
+
+/* 🌿 Horizontal Full-Width Layout */
+.floating-values {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  margin-top: 40px;
   margin-bottom: 30px;
-  font-size: 2rem;
+  width: 90%;
+  max-width: 1200px; /* keeps cards centered */
+  margin-left: auto;
+  margin-right: auto;
+  flex-wrap: nowrap; /* keeps one horizontal row */
 }
 
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.value {
-  background: rgba(51, 119, 46, 0.708);
-  background-image: url("images/leaf-texture.jpg"); /* subtle pattern */
-  color: #ddffc5;
-  font-weight: 500;
-  border-radius: 5px;
-  padding: 25px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-}
-
-.value:hover {
-  transform: scale(1.05);
-}
-
-/* Story / Timeline */
-#story {
-  position: relative;
-  text-align: center;
-  padding: 80px 20px;
-  color: #103510;
-  background: url("images/community.jpg") center center / cover no-repeat;
-  overflow: hidden;
-}
-
-/* overlay layer */
-#story::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(94, 128, 94, 0.35); /* soft green overlay */
-  z-index: 0;
+/* 🌼 Mission Cards (Animated + Responsive) */
+.float-card {
+  flex: 1;
+  background: rgba(35, 97, 35, 0.88);
+  color: #e9ffe9;
+  padding: 40px 30px;
   border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: floatCard 4s ease-in-out infinite alternate;
 }
 
-/* text container box */
-#story .story-box {
-  background: rgba(255, 255, 255, 0.8); /* soft white box for readability */
-  display: inline-block;
-  padding: 30px 60px;
-  max-width: 900px;
-  margin: 0 auto;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(3px); /* adds a subtle frosted-glass effect */
+.float-card:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
 }
 
-/* keep text above overlays */
-#story * {
+/* Optional: Smooth animation already exists */
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-12px); }
+}
+
+/* 🌳 Tree Layout for Our Story */
+.tree {
   position: relative;
-  z-index: 1;
+  margin: 60px auto;
+  margin-top: 40px;
+  margin-bottom: 130px;
+  max-width: 800px;
 }
 
 #story h2 {
-  color: #135c26;
-  margin-bottom: 30px;
-  font-size: 2rem;
+  text-align: center;
+  font-size: 2rem; /* optional - adjust size */
+  margin-top: 100px;
+  color: #145a1d;   /* optional - gives a nice green tone */
+  font-weight: 700;
+  margin-bottom: 0%;
 }
 
 
-.timeline {
-  max-width: 800px;
-  margin: 0 auto;
-  border-left: 4px solid #2e7d32;
-  padding-left: 30px;
-  text-align: left;
+.tree::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 6px;
+  height: 100%;
+  background: #228B22;
+  transform: translateX(-50%);
+  border-radius: 3px;
 }
 
-.timeline-item {
-  margin-bottom: 40px;
+.branch {
+  width: 50%;
+  padding: 20px 30px;
   position: relative;
 }
 
-.timeline-item::before {
-  content: "🌱";
+.branch.left {
+  text-align: right;
+  left: 0;
+}
+
+.branch.right {
+  left: 50%;
+  text-align: left;
+}
+
+.leaf {
+  background: #d9f7c4;
+  background-image:url("images/leaf-texture.jpg");
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.leaf:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.branch.left::before,
+.branch.right::before {
+  content: "🌿";
   position: absolute;
-  left: -26px;
-  top: 0;
-  font-size: 1.5rem;
+  top: 25px;
+  font-size: 1.8rem;
 }
 
-.timeline-item h4 {
-  color: #1b5e20;
-  margin-bottom: 10px;
+.branch.left::before {
+  right: -14px;
 }
 
-.timeline-item p {
-  color: #2f6e2f;
-  line-height: 1.6;
+.branch.right::before {
+  left: -14px;
 }
 
-/* Team Section */
-#team {
-  background: #e9fbe9;
-  text-align: center;
-  padding: 80px 20px;
-}
-
-#team h2 {
-  color: #1a3c1a;
-  margin-bottom: 10px;
-}
-
-.team-intro {
-  color: #2f6e2f;
-  max-width: 700px;
-  margin: 0 auto 50px;
-}
-
+/* 🌼 Modern Team Layout */
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* ↓ tighter spacing */
+  margin-top: 25px; /* ↓ smaller top margin */
 }
 
 .team-member {
-  background: #ffffff;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  padding: 20px; /* ↓ slightly smaller padding */
+  width: 230px; /* ↓ narrower card */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .team-member:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
 }
 
 .team-member img {
   width: 100%;
-  height: 230px;
+  height: 210px; /* ↓ reduced image height */
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
+  border-radius: 15px;
+  margin-bottom: 10px;
 }
 
 .team-member h3 {
-  color: #1b5e20;
-  margin-bottom: 5px;
+  color: #145a1d;
+  margin: 5px 0 3px;
+  font-weight: 700;
 }
 
 .team-member p {
   color: #2f6e2f;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
-
-
-footer {
+/* 💥 Team “Pasabog” Section */
+#team {
+  background: #b4f5b4;
   text-align: center;
-  color: #ffffff;
-  font-size: small;
-  font-weight: 500;
-  padding: 10px;
-  background: #007806;
-  margin-top: 20px;
+  padding: 55px 20px; /* ↓ from 70px */
+  position: relative;
 }
+
+#team h2 {
+  font-size: 2.2rem; /* ↓ slightly smaller */
+  color: #1b5e20;
+  margin-bottom: 12px;
+  margin-top: 1px;
+}
+
+.team-showcase {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  perspective: 1000px;
+}
+
+.member-card {
+  background: #fff;
+  width: 240px; /* ↓ smaller card */
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+
+.member-card:hover {
+  transform: rotateY(8deg) translateY(-10px) scale(1.05);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+.member-img {
+  height: 210px; /* ↓ smaller image height */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.4s ease;
+}
+
+.member-card:hover .member-img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
+.member-info {
+  padding: 16px; /* ↓ less padding */
+}
+
+.member-info h3 {
+  color: #1b5e20;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.member-info p {
+  color: #2f6e2f;
+  font-size: 0.9rem;
+}
+
 /* ================================
    CONTACT PAGE – GREENROOTS
    Optimized Layout + Design
