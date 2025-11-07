@@ -277,7 +277,7 @@ blockquote span {
   flex-wrap: wrap;
   align-items: center;
   background: #dff5df;
-  border-radius: 12px;
+  border-radius: 5px;
   overflow: hidden;
   margin: 70px auto 60px;
   max-width: 1000px;
@@ -290,7 +290,7 @@ blockquote span {
   text-align: left;
   color: #0d4d0d;
   animation: fadeInLeft 1.2s ease;
-}
+} 
 
 .about-hero-split h1 {
   font-size: 2.6rem;
@@ -306,10 +306,22 @@ blockquote span {
 
 .about-hero-split .hero-image {
   flex: 1;
-  min-height: 350px;
-  background: url("images/leaf-texture.jpg") center/cover no-repeat;
-  filter: brightness(0.85);
+  height: 60vh; /* smaller height (not full screen) */
+  background: url("images/landscapes.jpg") center/cover no-repeat;
+  filter: brightness(1) blur(1px);
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
   animation: fadeInRight 1.2s ease;
+}
+
+/* angled and blurred overlay effect */
+.about-hero-split .hero-image::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  filter: brightness(0.85) blur(2px);
+  transform: skewY(-5deg);
+  transform-origin: top right;
 }
 
 @keyframes fadeInLeft {
@@ -325,7 +337,7 @@ blockquote span {
 #about-mission {
   text-align: center;
   background: #b4f5b4;
-  border-radius: 0; /* remove rounded corners for full width */
+  border-radius: 0  ; /* remove rounded corners for full width */
   padding: 20px 0;
   margin: 0;
   width: 100%;
@@ -359,7 +371,7 @@ blockquote span {
   background: rgba(35, 97, 35, 0.88);
   color: #e9ffe9;
   padding: 40px 30px;
-  border-radius: 15px;
+  border-radius: 5px;
   text-align: center;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -466,7 +478,7 @@ blockquote span {
 
 .team-member {
   background: #fff;
-  border-radius: 18px;
+  border-radius: 5px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.18);
   padding: 20px; /* ↓ slightly smaller padding */
   width: 230px; /* ↓ narrower card */
