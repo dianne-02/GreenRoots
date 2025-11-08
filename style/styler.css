@@ -322,7 +322,7 @@ body.donate-page {
 .donate-page .info-section {
   position: relative;
   padding: 20px;
-  background-image: url("images/leaf-texture.jpg");
+  background-image: url("/images/leaf-texture.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

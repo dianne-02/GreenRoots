@@ -15,7 +15,7 @@ body {
 
 /* LOGIN BOX */
 .login-container {
-  background: url("images/adminbg.jpg") no-repeat center center/cover;
+  background: url("/images/adminbg.jpg") no-repeat center center/cover;
   padding: 60px 50px; /* bigger padding */
   border-radius: 20px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);

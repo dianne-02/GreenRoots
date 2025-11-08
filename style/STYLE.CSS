@@ -64,7 +64,7 @@ nav a:hover {
 .hero {
   text-align: center;
   padding: 120px 50px;
-  background: url("images/lawn_grass.jpg") center center / cover no-repeat;
+  background: url("/images/lawn_grass.jpg") center center / cover no-repeat;
   color: #ffffff;
   position: relative;
   max-width: 1500px; /* optional: keeps it balanced on large screens */
@@ -157,7 +157,7 @@ nav a:hover {
 
 .stats div {
   background: rgb(117, 220, 76);
-  background-image: url("images/leaf-texture.jpg"); /* subtle pattern */
+  background-image: url("/images/leaf-texture.jpg"); /* subtle pattern */
   color: #0b3218;
   padding: 20px;
   border-radius: 10px;
@@ -212,7 +212,7 @@ nav a:hover {
 
 #testimonials {
   position: relative;
-  background: url("images/ls2.jpg ") center center / cover no-repeat;
+  background: url("/images/ls2.jpg ") center center / cover no-repeat;
   padding: 60px 20px;
   text-align: center;
   overflow: hidden;
@@ -307,9 +307,9 @@ blockquote span {
 .about-hero-split .hero-image {
   flex: 1;
   height: 60vh; /* smaller height (not full screen) */
-  background: url("images/landscapes.jpg") center/cover no-repeat;
+  background: url("/images/landscapes.jpg") center/cover no-repeat;
   filter: brightness(1) blur(1px);
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
   animation: fadeInRight 1.2s ease;
 }
 
@@ -438,7 +438,7 @@ blockquote span {
 
 .leaf {
   background: #d9f7c4;
-  background-image:url("images/leaf-texture.jpg");
+  background-image:url("/images/leaf-texture.jpg");
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -587,7 +587,7 @@ blockquote span {
 /* 🌿 Hero Section */
 .contact-hero {
   background-color: #228B22; /* solid base color */
-  background-image: url("images/leaf-texture.jpg"); /* subtle pattern */
+  background-image: url("/images/leaf-texture.jpg"); /* subtle pattern */
   background-size: 200px; /* controls how big each pattern repeat looks */
   background-repeat: repeat;
   background-blend-mode: overlay; /* makes texture blend gently with the green */
