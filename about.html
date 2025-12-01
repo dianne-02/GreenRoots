@@ -2,80 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About Us – GreenRoots</title>
   <link rel="stylesheet" href="style/STYLE.CSS">
-  <link rel="stylesheet" href="about.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&display=swap" rel="stylesheet">
 </head>
+
 <body class="about-page">
+
   <header>
     <div class="container nav">
       <div class="brand">
         <div class="logo"></div>
         <div>
           <div class="title">GreenRoots</div>
-          <div class="tagline">Planting a greener future.</div>
+          <div class="tagline">Planting a Greener Future.</div>
         </div>
       </div>
       <nav>
         <a href="index.html">Home</a>
-        <a href="about.html" class="active">About Us</a>
+        <a href="about.html" class="active">About</a>
         <a href="services.html">Services</a>
         <a href="projects.html">Projects</a>
         <a href="donate.html">Donate</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html">Contact Us</a>
       </nav>
     </div>
   </header>
 
-  <!-- 🌿 New Hero Section -->
+  <!-- Hero Section -->
   <section class="about-hero-split">
     <div class="hero-text">
       <h1>Growing Together for a Greener Tomorrow</h1>
       <p>Every leaf tells a story of hope — we plant not just trees, but futures that thrive with nature.</p>
+      <a href="#about-mission" class="cta-button">Learn More</a>
     </div>
     <div class="hero-image"></div>
   </section>
 
-  <!-- 🌱 Mission Section -->
+  <!-- Mission Section -->
   <section id="about-mission">
     <h2>Our Mission & Core Values</h2>
     <div class="floating-values">
+
       <div class="float-card">
-        <h3>🌳 Sustainability</h3>
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L13.09 8.26L19 9L13.09 9.74L12 16L10.91 9.74L5 9L10.91 8.26L12 2Z"/>
+            <path d="M12 22V16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8 18H16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M10 20H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Sustainability</h3>
         <p>We embrace green living and eco-restoration for lasting harmony with the planet.</p>
       </div>
+
       <div class="float-card">
-        <h3>🤝 Collaboration</h3>
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 11H15V13H9V11Z"/>
+            <path d="M12 2C13.1 2 14 2.9 14 4V5H16C17.1 5 18 5.9 18 7V19C18 20.1 17.1 21 16 21H8C6.9 21 6 20.1 6 19V7C6 5.9 6.9 5 8 5H10V4C10 2.9 10.9 2 12 2ZM12 4V5H12V4ZM8 7V19H16V7H8Z"/>
+          </svg>
+        </div>
+        <h3>Collaboration</h3>
         <p>Together with communities, we cultivate teamwork that grows into lasting change.</p>
       </div>
+
       <div class="float-card">
-        <h3>💚 Integrity</h3>
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 21.35L10.55 20.03C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5C22 12.27 18.6 15.36 13.45 20.03L12 21.35Z"/>
+          </svg>
+        </div>
+        <h3>Integrity</h3>
         <p>With honesty and heart, we ensure every effort truly benefits Mother Earth.</p>
       </div>
+
     </div>
   </section>
 
-  <!-- 🌳 Tree Story Section -->
+  <!-- Story Section -->
   <section id="story">
     <h2>Our Story</h2>
-    <div class="tree">
-      <div class="branch left">
-        <div class="leaf">
+    <div class="story-alternating">
+      <div class="story-item left">
+        <div class="story-card">
           <h4>2020 – The Beginning</h4>
           <p>GreenRoots began as a student-led dream to revive the forests of Davao through small yet powerful actions.</p>
         </div>
       </div>
 
-      <div class="branch right">
-        <div class="leaf">
+      <div class="story-item right">
+        <div class="story-card">
           <h4>2022 – Expanding Roots</h4>
           <p>We partnered with schools and LGUs, planting thousands of trees and inspiring the youth to protect our planet.</p>
         </div>
       </div>
 
-      <div class="branch left">
-        <div class="leaf">
+      <div class="story-item left">
+        <div class="story-card">
           <h4>2025 – The Movement Today</h4>
           <p>Today, GreenRoots thrives nationwide — proof that small seeds can indeed grow into great forests.</p>
         </div>
@@ -83,31 +111,110 @@
     </div>
   </section>
 
-  <!-- 💫 Revamped Team Section -->
+  <!-- Team Section -->
   <section id="team">
     <h2>Meet Our Team</h2>
-    <p class="team-intro">We are the hands and hearts behind GreenRoots — united by passion, powered by purpose.</p>
     <div class="team-grid">
+
       <div class="team-member">
-        <img src="images/dayan.jpg" alt="Dianne Dayan">
-        <h3>Dianne Dayan</h3>
-        <p>Project Coordinator</p>
+        <div class="card-front">
+          <img src="images/dayan.jpg" alt="Dianne Salazar">
+          <h3>Dianne Salazar</h3>
+        </div>
+        <div class="card-back">
+          <p>Project Coordinator</p>
+          <p>Leading initiatives with passion and expertise.</p>
+        </div>
       </div>
+
       <div class="team-member">
-        <img src="images/member2.jpg" alt="John Rivera">
-        <h3>John Rivera</h3>
-        <p>Environmental Advocate</p>
+        <div class="card-front">
+          <img src="images/ivan.jpg" alt="Ivan Jenrick Bayacag">
+          <h3>Ivan Jenrick Bayacag</h3>
+        </div>
+        <div class="card-back">
+          <p>Environmental Advocate</p>
+          <p>Advocating for sustainable practices worldwide.</p>
+        </div>
       </div>
+
       <div class="team-member">
-        <img src="images/aira.jpg" alt="Aira Santos">
-        <h3>Aira Santos</h3>
-        <p>Outreach Manager</p>
+        <div class="card-front">
+          <img src="images/aira.jpg" alt="Aira Mae Tabudlong">
+          <h3>Aira Mae Tabudlong</h3>
+        </div>
+        <div class="card-back">
+          <p>Outreach Manager</p>
+          <p>Connecting communities for a greener future.</p>
+        </div>
       </div>
+
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 GreenRoots | Growing a Greener Tomorrow 🌿</p>
-  </footer>
+  <footer class="fade-in">
+  <div class="footer-content">
+
+    <div class="footer-section">
+      <h3>GreenRoots</h3>
+      <p>A community-driven platform dedicated to restoring nature through tree planting and sustainable action. Connect with us to make a lasting impact, one tree at a time.</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 GreenRoots. All rights reserved.</p>
+  </div>
+
+</footer>
+
+<script>
+  const currentPage = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll("nav a");
+  navLinks.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPage || (href === "index.html" && currentPage === "")) {
+      link.classList.add("active");
+    }
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('animate');
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in, .slide-up').forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector('.parallax');
+    if (parallax) parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+  });
+</script>
+
+
 </body>
 </html>

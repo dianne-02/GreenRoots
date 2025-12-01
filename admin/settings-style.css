@@ -1,4 +1,4 @@
-/* Green Roots - Community Admin Dashboard */
+/* Green Roots - Settings Page */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -142,27 +142,60 @@ main {
   color: #2e7d32;
 }
 
-/* ACTIVITY SECTION */
-.activity {
+/* SETTINGS MANAGEMENT SECTION */
+.settings-management {
   background-color: #f4f4f4;
   border-radius: 1px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   padding: 20px 30px;
+  margin-bottom: 20px;
 }
 
-.activity h3 {
+.settings-management h3 {
   color: #2e7d32;
   margin-bottom: 15px;
 }
 
-.activity ul {
-  list-style: none;
-  line-height: 1.8;
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-.activity li {
-  font-size: 15px;
-  color: #333;
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #2e7d32;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+.save-btn {
+  background-color: #5aca5d;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.1s;
+  box-shadow: 10 4px 6px rgba(5, 5, 5, 5);
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+}
+
+.save-btn:hover {
+  background-color: #388e3c;
 }
 
 /* FOOTER */

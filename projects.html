@@ -1,70 +1,128 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Our Projects – GreenRoots</title>
-  <link rel="stylesheet" href="style/styler.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Our Projects – GreenRoots</title>
+
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo"></div>
-        <div>
-          <div class="title">GreenRoots</div>
-          <div class="tagline">Planting a greener future.</div>
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <div class="logo" aria-label="GreenRoots Logo"></div>
+                <div>
+                    <div class="title">GreenRoots</div>
+                    <div class="tagline">Planting a Greener Future</div>
+                </div>
+            </div>
+
+            <nav role="navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="projects.html" class="active">Projects</a>
+                <a href="donate.html">Donate</a>
+                <a href="contact.html">Contact Us</a>
+            </nav>
         </div>
-      </div>
-     <nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="projects.html"class="active">Projects</a>
-  <a href="donate.html">Donate</a>
-  <a href="contact.html">Contact</a>
-</nav>
+    </header>
 
-    </div>
-  </header>
+    <main class="projects" role="main">
+        <!-- HERO SECTION -->
+        <section class="projects-hero" data-animate="fadeInUp">
+            <h1>Our Tree Planting Projects</h1>
+            <p>Discover our impactful initiatives around the world, where every tree planted contributes to a sustainable future.</p>
+        </section>
 
-  <main class="projects">
-    <h1>Our Tree Planting Projects</h1>
-    <div class="project-grid">
+        <!-- PROJECT GRID -->
+        <section class="project-grid" data-animate="fadeIn">
 
-      <div class="project">
-        <img src=" images/mangrove.jpg" alt="Mangrove Restoration">
-        <div class="project-content">
-          <h2>Philippine Mangrove Restoration</h2>
-          <p>Reviving coastal ecosystems in the Philippines by planting mangroves that protect shorelines and nurture marine life.</p>
+            <article class="project" data-animate="slideInLeft">
+                <img src="images/mangrove.jpg" alt="Mangrove Restoration Project in the Philippines">
+                <div class="project-content">
+                    <h2>Philippine Mangrove Restoration</h2>
+                    <p>Reviving coastal ecosystems in the Philippines by planting mangroves that protect shorelines and nurture marine life.</p>
+                </div>
+            </article>
+
+            <article class="project" data-animate="slideInUp">
+                <img src="images/amazon.jpg" alt="Amazon Rainforest Reforestation Project">
+                <div class="project-content">
+                    <h2>Amazon Rainforest Reforestation</h2>
+                    <p>Partnering with local communities to restore deforested areas in the Amazon, ensuring long-term environmental balance.</p>
+                </div>
+            </article>
+
+            <article class="project" data-animate="slideInRight">
+                <img src="images/africa.jpg" alt="Africa Green Belt Initiative">
+                <div class="project-content">
+                    <h2>Africa Green Belt Initiative</h2>
+                    <p>Supporting sustainable tree planting programs across African regions to combat desertification and climate change.</p>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="cta-section" data-animate="fadeIn">
+            <h2>Get Involved</h2>
+            <p>Support our projects and make a difference. Donate or volunteer today.</p>
+            <a href="donate.html" class="cta-button">Donate Now</a>
+            <a href="contact.html" class="cta-button">Contact Us</a>
+        </section>
+
+        <div class="back-home">
+            <a href="index.html">← Back to Home</a>
         </div>
-      </div>
+    </main>
 
-      <div class="project">
-        <img src="images/amazon.jpg" alt="Amazon Reforestation">
-        <div class="project-content">
-          <h2>Amazon Rainforest Reforestation</h2>
-          <p>Partnering with local communities to restore deforested areas in the Amazon, ensuring long-term environmental balance.</p>
+    <!-- FOOTER -->
+    <footer class="fade-in">
+        <div class="footer-content">
+
+            <!-- Branding Section -->
+            <div class="footer-section">
+                <h3>GreenRoots</h3>
+                <p>A community-driven platform dedicated to restoring nature through tree planting and sustainable action. Connect with us to make a lasting impact, one tree at a time.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
         </div>
-      </div>
 
-      <div class="project">
-        <img src="images/africa.jpg" alt="Africa Green Belt">
-        <div class="project-content">
-          <h2>Africa Green Belt Initiative</h2>
-          <p>Supporting sustainable tree planting programs across African regions to combat desertification and climate change.</p>
+        <div class="footer-bottom">
+            <p>© 2025 GreenRoots. All rights reserved. | Growing a Greener Tomorrow 🌿</p>
         </div>
-      </div>
+    </footer>
 
-    </div>
-
-    <div class="back-home">
-      <a href="index.html">← Back to Home</a>
-    </div>
-  </main>
-
-  <footer>
-    <p>© 2025 GreenRoots | Growing a Greener Tomorrow🌿</p>
-  </footer>
+    <script src="js/animations.js"></script>
 </body>
 </html>

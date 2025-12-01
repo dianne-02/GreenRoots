@@ -1,4 +1,4 @@
-/* Green Roots - Community Admin Dashboard */
+/* Green Roots - Messages Page */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -142,30 +142,84 @@ main {
   color: #2e7d32;
 }
 
-/* ACTIVITY SECTION */
-.activity {
+/* MESSAGES MANAGEMENT SECTION */
+.messages-management {
   background-color: #f4f4f4;
   border-radius: 1px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   padding: 20px 30px;
+  margin-bottom: 20px;
 }
 
-.activity h3 {
+.messages-management h3 {
   color: #2e7d32;
   margin-bottom: 15px;
 }
 
-.activity ul {
-  list-style: none;
-  line-height: 1.8;
+.mark-read-btn {
+  background-color: #5aca5d;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.1s;
+  box-shadow: 10 4px 6px rgba(5, 5, 5, 5);
+  margin-bottom: 20px;
+  display: inline-block;
 }
 
-.activity li {
-  font-size: 15px;
-  color: #333;
+.mark-read-btn:hover {
+  background-color: #388e3c;
 }
 
-/* FOOTER */
+.messages-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.messages-table th, .messages-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.messages-table th {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+}
+
+.messages-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.messages-table .actions {
+  text-align: center;
+}
+
+.view-btn, .reply-btn {
+  background-color: #5aca5d;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  margin: 0 10px; /* Increased margin for better spacing */
+  display: inline-block; /* Ensures proper spacing and alignment */
+  transition: 0.1s;
+}
+
+.view-btn:hover {
+  background-color: #388e3c;
+}
+
+.reply-btn {
+  background-color: #ff9800;
+}
+
+.reply-btn:hover {
+  background-color: #f57c00;
+}
+
 footer {
   text-align: center;
   background-color: #627d62;

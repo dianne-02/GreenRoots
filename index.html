@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>GreenRoots – Home</title>
   <link rel="stylesheet" href="style/STYLE.CSS">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&display=swap" rel="stylesheet"> <!-- Enhanced font loading -->
 </head>
 <body>
-  <header>
+  <header class="fade-in">
     <div class="container nav">
       <div class="brand">
         <div class="logo"></div>
         <div>
           <div class="title">GreenRoots</div>
-          <div class="tagline">Planting a greener future.</div>
+          <div class="tagline">Planting a Greener Future.</div>
         </div>
       </div>
      <nav>
@@ -22,45 +23,40 @@
   <a href="services.html">Services</a>
   <a href="projects.html">Projects</a>
   <a href="donate.html">Donate</a>
-  <a href="contact.html">Contact</a>
+  <a href="contact.html">Contact Us</a>
 </nav>
-
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <main class="hero container">
-    <h1>Together, we can reforest our planet.</h1>
-    <p>GreenRoots connects people, communities, and organizations to restore the Earth one tree at a time. Every leaf we plant brings back life.</p>
-    <a class="btn pulse" href="donate.html">Donate Now</a>
+  <!-- Hero Section with Parallax -->
+  <main class="hero container parallax" data-speed="0.5">
+    <h1 class="slide-up">Plant Trees, Grow Hope</h1>
+    <p class="fade-in-delay">GreenRoots connects people, communities, and organizations to restore the Earth one tree at a time.</p>
+    <a class="btn pulse glow" href="donate.html">Donate Now</a>
   </main>
 
   <!-- Mission Section -->
-  <section id="mission">
+  <section id="mission" class="fade-in">
     <div class="container">
-      <h2>Our Mission</h2>
-      <p>We aim to restore deforested lands by empowering local communities to plant, nurture, and protect trees that sustain both nature and livelihoods. GreenRoots is more than an organization, it's a growing movement towards a sustainable future.</p>
+      <h2>Welcome to GreenRoots!</h2>
+      <p>We are a passionate group of environmental advocates planting trees to bring life back to our planet.</p>
     </div>
   </section>
 
   <!-- Impact Stats -->
-  <section id="impact">
+  <section id="impact" class="fade-in">
     <h2>Our Global Impact</h2>
     <p>Each number represents hope, growth, and a new beginning.</p>
     <div class="stats">
-      <div>
+      <div class="stat-card slide-up">
         <h3>1.2M+</h3>
         <p>Trees Planted</p>
       </div>
-      <div>
-        <h3>80+</h3>
-        <p>Communities Empowered</p>
-      </div>
-      <div>
+      <div class="stat-card slide-up">
         <h3>45+</h3>
         <p>Countries Reached</p>
       </div>
-      <div>
+      <div class="stat-card slide-up">
         <h3>900+</h3>
         <p>Active Volunteers</p>
       </div>
@@ -68,22 +64,22 @@
   </section>
 
   <!-- Featured Projects -->
-<section id="projects">
+<section id="projects" class="fade-in">
   <div class="container">
     <h2>Featured Projects</h2>
     <div class="project-grid">
-      <div class="card">
+      <div class="card slide-up">
         <img src="images/rainforestrevival.jpg" alt="Rainforest Restoration">
         <h3>Rainforest Revival</h3>
         <p>Rebuilding the lush forests of Mindanao with native tree species to protect biodiversity and water systems.</p>
       </div>
-      <div class="card">
+      <div class="card slide-up">
         <img src="images/mangroverebirth.jpg" alt="Mangrove Project">
         <h3>Mangrove Rebirth</h3>
         <p>Empowering coastal families by restoring mangroves that serve as natural barriers and fish habitats.</p>
       </div>
-      <div class="card">
-        <img src="images/urbangreening.jpg" alt="Urban Greening">
+      <div class="card slide-up">
+        <img src="images/lawn_grass.jpg" alt="Urban Greening">
         <h3>Urban Greening</h3>
         <p>Transforming city landscapes into vibrant, breathable spaces for everyone — one park at a time.</p>
       </div>
@@ -91,39 +87,93 @@
   </div>
 </section>
 
-
   <!-- Testimonials -->
-  <section id="testimonials">
+  <section id="testimonials" class="fade-in">
     <div class="container">
       <h2>What People Say</h2>
       <div class="quotes">
-        <blockquote>"GreenRoots changed how I see the world. Knowing my donation actually planted real trees makes me proud!" — <span>Ella, Donor</span></blockquote>
-        <blockquote>"Thanks to GreenRoots, our community now thrives with shade and fresh air. Our children love the new green spaces." — <span>Marco, Volunteer</span></blockquote>
+        <blockquote class="slide-up">"GreenRoots changed how I see the world. Knowing my donation actually planted real trees makes me proud!" — <span>Ella, Donor</span></blockquote>
+        <blockquote class="slide-up">"Thanks to GreenRoots, our community now thrives with shade and fresh air. Our children love the new green spaces." — <span>Marco, Volunteer</span></blockquote>
       </div>
     </div>
   </section>
 
-  <!-- Call to Action -->
-  <section id="join">
-    <div class="container">
-      <h2>Let's join the movement!</h2>
-      <p>Be part of something life-changing. Together, we can make the Earth green again, for us and for generations to come.</p>
-      <a class="btn pulse" href="about.html">Get Involved</a>
-    </div>
-  </section>
+<!-- Call to Action -->
+<section id="join" class="fade-in">
+  <div class="container">
+    <h2>Let's join the movement!</h2>
+    <p>Be part of something life-changing. Together, we can make the Earth green again, for us and for generations to come.</p>
+    <a class="btn pulse glow" href="about.html">Get Involved</a>
+  </div>
+</section>
 
-  <footer>
-    <p>© 2025 GreenRoots | Growing a Greener Tomorrow🌿</p>
-  </footer>
+<footer class="fade-in">
+  <div class="footer-content">
+    <!-- Branding Section -->
+    <div class="footer-section">
+      <h3>GreenRoots</h3>
+      <p>A community-driven platform dedicated to restoring nature through tree planting and sustainable action. Connect with us to make a lasting impact, one tree at a time.</p>
+    </div>
+    
+    <!-- Quick Links Section -->
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+    
+    <!-- Social Media Section -->
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bottom Copyright -->
+  <div class="footer-bottom">
+    <p>© 2025 GreenRoots. All rights reserved. | Growing a Greener Tomorrow 🌿</p>
+  </div>
+</footer>
 
   <script>
+  // Existing nav script
   const currentPage = window.location.pathname.split("/").pop();
   const navLinks = document.querySelectorAll("nav a");
-
   navLinks.forEach(link => {
     const href = link.getAttribute("href");
     if (href === currentPage || (href === "index.html" && currentPage === "")) {
       link.classList.add("active");
+    }
+  });
+
+  // New: Scroll-triggered animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in, .slide-up').forEach(el => observer.observe(el));
+
+  // Parallax effect for hero
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector('.parallax');
+    if (parallax) {
+      parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
   });
 </script>

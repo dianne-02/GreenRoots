@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Our Services – GreenRoots</title>
+
   <link rel="stylesheet" href="style/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
   <header>
     <div class="container nav">
       <div class="brand">
@@ -19,54 +25,126 @@
       <nav>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="services.html"class="active">Services</a>
+        <a href="services.html" class="active">Services</a>
         <a href="projects.html">Projects</a>
         <a href="donate.html">Donate</a>
-        <a href="contact.html">Contact</a>
+        <a href="contact.html">Contact Us</a>
       </nav>
     </div>
   </header>
 
-  <main class="services">
-    <h1>Our Environmental Services</h1>
-    <p class="intro">At GreenRoots, we go beyond tree planting. We empower communities, restore forests, and create sustainable ecosystems through our environmental programs.</p>
+  <main class="services" role="main">
 
-    <div class="service-grid">
+    <section class="services-hero" data-animate="fadeInUp">
+      <h1>Our Environmental Services</h1>
+      <p class="intro">We go beyond tree planting. We empower communities, restore forests, and create sustainable ecosystems.
+      </p>
+    </section>
 
-      <div class="service">
+    <section class="service-grid" data-animate="fadeIn">
+
+      <article class="service" data-animate="slideInLeft">
         <img src="images/community.jpg" alt="Community Training">
         <div class="service-content">
           <h2>Community Education & Training</h2>
-          <p>We conduct local training sessions on sustainable agriculture, forest conservation, and eco-friendly practices. Our workshops empower people to protect nature while improving their livelihood.</p>
+          <p>We conduct workshops on conservation, sustainability, and eco-friendly practices.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="service">
-        <img src="images/reforestation.jpg" alt="Reforestation Program">
+      <article class="service" data-animate="slideInUp">
+        <img src="images/reforestation.jpg" alt="Reforestation Services">
         <div class="service-content">
           <h2>Reforestation & Habitat Restoration</h2>
-          <p>We organize large-scale reforestation campaigns that restore degraded lands and promote biodiversity. Each tree planted helps fight climate change and provide homes for wildlife.</p>
+          <p>We restore degraded lands and support biodiversity through tree-planting campaigns.</p>
         </div>
-      </div>
+      </article>
 
-      <div class="service">
+      <article class="service" data-animate="slideInRight">
         <img src="images/carbon.webp" alt="Carbon Offset Program">
         <div class="service-content">
           <h2>Carbon Offset Initiatives</h2>
-          <p>Our verified carbon offset programs help individuals and businesses reduce their carbon footprint by funding tree planting projects that absorb CO₂ from the atmosphere.</p>
+          <p>We help individuals and businesses reduce their carbon footprint through certified offset programs.</p>
         </div>
-      </div>
+      </article>
 
-    </div>
+    </section>
+
+    <section class="cta-section" data-animate="fadeIn">
+      <h2>Join Us in Making a Difference</h2>
+      <p>Support our mission by participating or contributing today.</p>
+      <a href="projects.html" class="cta-button">View Projects</a>
+      <a href="donate.html" class="cta-button">Donate Now</a>
+    </section>
 
     <div class="back-home">
       <a href="index.html">← Back to Home</a>
     </div>
+
   </main>
 
+  <footer class="fade-in">
+  <div class="footer-content">
 
-  <footer>
-    <p>© 2025 GreenRoots | Growing a Greener Tomorrow🌿</p>
-  </footer>
+    <div class="footer-section">
+      <h3>GreenRoots</h3>
+      <p>A community-driven platform dedicated to restoring nature through tree planting and sustainable action. Connect with us to make a lasting impact, one tree at a time.</p>
+    </div>
+
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="donate.html">Donate</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2025 GreenRoots. All rights reserved.</p>
+  </div>
+
+</footer>
+
+<script>
+  const currentPage = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll("nav a");
+  navLinks.forEach(link => {
+    const href = link.getAttribute("href");
+    if (href === currentPage || (href === "index.html" && currentPage === "")) {
+      link.classList.add("active");
+    }
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('animate');
+    });
+  }, { threshold: 0.1 }); 
+
+  document.querySelectorAll('.fade-in, .slide-up').forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector('.parallax');
+    if (parallax) parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+  });
+</script>
+
+
 </body>
 </html>
