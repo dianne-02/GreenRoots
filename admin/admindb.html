@@ -1,67 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Dashboard | Green Roots</title>
-  <link rel="stylesheet" href="admindb-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Green Roots</title>
+    <link rel="stylesheet" href="admindb-style.css">
 </head>
 <body>
 
-  <header>
-    <h1>🌿GreenRoots Admin Dashboard</h1>
-    <a href="login.html" class="logout-btn">Logout</a>
-  </header>
+    <header>
+        <h1>🌿GreenRoots Admin Dashboard</h1>
+        <a href="login.html" class="logout-btn">Logout</a>
+    </header>
 
-  <main>
-    <aside class="sidebar">
-      <h2>Admin Menu</h2>
-      <ul>
-        <li><a href="#" class="active">Dashboard</a></li>
-        <li><a href="donations.html">Donations</a></li>
-        <li><a href="messages.html">Messages</a></li>
-        <li><a href="settings.html">Settings</a></li>
-      </ul>
-    </aside>
+    <main>
+        <aside class="sidebar">
+            <h2>Admin Menu</h2>
+            <ul>
+                <li><a href="#" class="active">Dashboard</a></li>
+                <li><a href="donations.html">Donations</a></li>
+                <li><a href="messages.html">Messages</a></li>
+            </ul>
+        </aside>
 
-    <section class="dashboard-content">
-      <h2>Welcome, Admin</h2>
-      <p>Here’s an overview of the Green Roots community progress.</p>
+        <section class="dashboard-content">
+            <h2>Welcome, Admin</h2>
+            <p>Here’s an overview of the Green Roots community progress.</p>
 
-      <div class="cards">
-        <div class="card">
-          <h3>Total Volunteers</h3>
-          <p>128</p>
-        </div>
-        <div class="card">
-          <h3>Ongoing Projects</h3>
-          <p>7</p>
-        </div>
-        <div class="card">
-          <h3>Total Donations</h3>
-          <p>₱52,430</p>
-        </div>
-        <div class="card">
-          <h3>Messages Received</h3>
-          <p>23</p>
-        </div>
-      </div>
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Donations</h3>
+                    <p>₱52,430</p> 
+                    <!-- Mananatili itong hardcoded for now -->
+                </div>
+                <div class="card">
+                    <h3>Messages Received</h3>
+                    <p id="dashboardMessagesCount">0</p> 
+                    <!-- BINAGO: Ang default value ay 0 -->
+                </div>
+            </div>
 
-      <div class="activity">
-        <h3>Recent Activities</h3>
-        <ul>
-          <li>New project “Clean River Drive” added</li>
-          <li>5 new volunteers joined</li>
-          <li>3 new messages received</li>
-          <li>₱1,000 donation from “Eco Life Org”</li>
-        </ul>
-      </div>
-    </section>
-  </main>
+            <div class="activity">
+                <h3>Recent Activities</h3>
+                <ul id="recentActivityList">
+                    <!-- Dynamic activity items for demonstration -->
+                    <li>New project “Clean River Drive” added</li>
+                    <li>5 new volunteers joined</li>
+                    <li id="recentMessageActivity">0 new messages received</li> 
+                    <!-- BINAGO: Ang default activity message ay 0 -->
+                    <li>₱1,000 donation from “Eco Life Org”</li>
+                </ul>
+            </div>
+        </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Green Roots | Admin Panel</p>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Green Roots | Admin Panel</p>
+    </footer>
 
+    <script>
+        // Element IDs para sa Dashboard
+        const dashboardCountEl = document.getElementById('dashboardMessagesCount');
+        const recentMessageActivityEl = document.getElementById('recentMessageActivity');
+
+        // Function para kunin at i-update ang message counts
+        async function fetchDashboardCounts() {
+            try {
+                // Tiyakin na ang path ay tama (script ay nasa parehong 'admin/' folder)
+                const response = await fetch('get_message_counts.php');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Ang data.total ay magiging '0' kung walang laman ang database (na tama)
+                    dashboardCountEl.textContent = data.total;
+                    
+                    // I-update ang recent activity
+                    recentMessageActivityEl.textContent = `${data.unread} new messages received`;
+                    recentMessageActivityEl.style.fontWeight = data.unread > 0 ? 'bold' : 'normal';
+
+                } else {
+                    // Kung may error sa PHP, gawing '0' ang display
+                    dashboardCountEl.textContent = '0'; 
+                    recentMessageActivityEl.textContent = '0 new messages received';
+                    console.error('Error fetching dashboard counts:', data.error);
+                }
+            } catch (error) {
+                // Kung may connection error, gawing '0' ang display
+                console.error('Fetch counts error:', error);
+                dashboardCountEl.textContent = '0'; 
+                recentMessageActivityEl.textContent = '0 new messages received';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchDashboardCounts);
+    </script>
 </body>
 </html>

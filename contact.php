@@ -29,8 +29,8 @@
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="projects.html">Projects</a>
-            <a href="donate.html">Donate</a>
-            <a href="contact.html" class="active">Contact Us</a>
+            <a href="donate.php">Donate</a>
+            <a href="contact.php" class="active">Contact Us</a>
         </nav>
     </div>
 </header>
@@ -44,7 +44,6 @@
 
     <section class="contact-section" data-animate="fadeIn">
 
-        <!-- Contact Info -->
         <div class="contact-info" data-animate="slideInLeft">
             <h2>Contact Information</h2>
 
@@ -74,30 +73,24 @@
             <p>We’re here to help with inquiries about our projects, donations, or partnerships.</p>
         </div>
 
-        <!-- Form -->
         <div class="contact-form" data-animate="slideInRight">
             <h2>Send a Message</h2>
 
-            <form id="contactForm">
+            <form id="contactForm" action="save_message.php" method="POST">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" required>
-
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
-
+               <input type="text" id="name" name="name" required> 
+               <label for="email">Email</label>
+                <input type="email" id="email" name="email" required> 
                 <label for="subject">Subject</label>
-                <input type="text" id="subject" required>
-
+                <input type="text" id="subject" name="subject" required>
                 <label for="message">Message</label>
-                <textarea id="message" rows="5" required></textarea>
-
+                <textarea id="message" name="message" rows="5" required></textarea> 
                 <button type="submit">Send</button>
             </form>
         </div>
 
     </section>
 
-    <!-- MAP -->
     <section class="map-section" data-animate="fadeIn">
         <h2>Find Us</h2>
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15443.123456789!2d120.984218!3d14.599512!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ca035b97f3b%3A0x1234567890abcdef!2sManila%2C%20Metro%20Manila%2C%20Philippines!5e0!3m2!1sen!2sus!4v1234567890" loading="lazy" allowfullscreen></iframe>
@@ -109,7 +102,6 @@
 
 </main>
 
-<!-- SUCCESS POPUP -->
 <div id="successPopup" class="popup hidden" role="dialog">
     <div class="popup-content">
         <p>Thank you for your message! We'll get back to you soon.</p>
@@ -168,15 +160,31 @@ const messageInput = document.getElementById("message");
 form.addEventListener("submit", e => {
     e.preventDefault();
 
+    // The validation check here will now use the correct IDs
     if (!nameInput.value || !emailInput.value || !subjectInput.value || !messageInput.value) {
         alert("Please fill in all required fields.");
         return;
     }
 
-    popup.classList.remove("hidden");
-    form.reset();
+    // Since the inputs now have NAME attributes, FormData will correctly collect the data.
+    let formData = new FormData(form);
+
+    fetch("save_message.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+        if (result.trim() === "success") { // Use .trim() to handle potential whitespace
+            popup.classList.remove("hidden");
+            form.reset();
+        } else {
+            alert("Failed to send message. Response: " + result); // Added result for better debugging
+        }
+    });
 });
 
+// Close popup
 closeBtn.addEventListener("click", () => {
     popup.classList.add("hidden");
 });

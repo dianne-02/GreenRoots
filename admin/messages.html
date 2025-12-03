@@ -1,115 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Messages | Green Roots</title>
-  <link rel="stylesheet" href="messages-style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages | Green Roots</title>
+    <!-- Assuming messages-style.css and other CSS links are correct -->
+    <link rel="stylesheet" href="messages-style.css"> 
+    <link rel="stylesheet" href="admindb-style.css"> 
 </head>
 <body>
 
-  <header>
-    <h1>🌿GreenRoots Messages</h1>
-    <a href="login.html" class="logout-btn">Logout</a>
-  </header>
+    <header>
+        <h1>🌿GreenRoots Admin Dashboard</h1>
+        <a href="login.html" class="logout-btn">Logout</a>
+    </header>
 
-  <main>
-    <aside class="sidebar">
-      <h2>Admin Menu</h2>
-      <ul>
-        <li><a href="admindb.html">Dashboard</a></li>
-        <li><a href="donations.html">Donations</a></li>
-        <li><a href="#" class="active">Messages</a></li>
-        <li><a href="settings.html">Settings</a></li>
-      </ul>
-    </aside>
+    <main>
+        <aside class="sidebar">
+            <h2>Admin Menu</h2>
+            <ul>
+                <li><a href="admindb.html">Dashboard</a></li>
+                <li><a href="donations.html">Donations</a></li>
+                <li><a href="#" class="active">Messages</a></li>
+            </ul>
+        </aside>
 
-    <section class="dashboard-content">
-      <h2>Messages Overview</h2>
-      <p>Review and respond to messages from the Contact Us form to engage with the GreenRoots community.</p>
+        <section class="dashboard-content">
+            <h2>Messages Overview</h2>
+            <p>Review and respond to messages from the Contact Us form to engage with the GreenRoots community.</p>
 
-      <div class="cards">
-        <div class="card">
-          <h3>Total Messages</h3>
-          <p>23</p>
+            <div class="cards">
+                <div class="card">
+                    <h3>Total Messages</h3>
+                    <!-- Default value ay 0 -->
+                    <p id="totalMessagesCount">0</p> 
+                </div>
+                <div class="card unread-card">
+                    <h3>Unread Messages</h3>
+                    <!-- Default value ay 0 -->
+                    <p id="unreadMessagesCount">0</p> 
+                </div>
+            </div>
+
+            <div class="messages-management">
+                <h3>Recent Messages</h3>
+                <button id="markAllReadBtn" class="mark-read-btn">Mark All as Read</button>
+                <div id="loadingIndicator" style="text-align: center; padding: 20px; display: none;">Loading messages...</div>
+                <table class="messages-table" style="display:none;">
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="messagesTableBody">
+                        <!-- Data will be populated here by JavaScript -->
+                    </tbody>
+                </table>
+                <!-- Ipakita ito kung walang messages -->
+                <p id="noMessagesText" style="text-align: center; padding: 20px; font-style: italic;">No messages received yet.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for Viewing Message (VIEW button action) -->
+    <div id="messageModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h4 id="modalName"></h4>
+            <p id="modalEmail"></p>
+            <p><strong>Subject:</strong> <span id="modalSubject"></span></p>
+            <hr>
+            <p id="modalMessage"></p>
+            <div style="text-align: right; margin-top: 20px;">
+                <button id="modalReplyBtn" class="reply-btn">Reply via Email</button>
+            </div>
         </div>
-        <div class="card">
-          <h3>Unread Messages</h3>
-          <p>5</p>
-        </div>
-        <div class="card">
-          <h3>This Week</h3>
-          <p>8</p>
-        </div>
-        <div class="card">
-          <h3>Replied</h3>
-          <p>18</p>
-        </div>
-      </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Green Roots | Admin Panel</p>
+    </footer>
 
-      <div class="messages-management">
-        <h3>Recent Messages</h3>
-        <a href="#" class="mark-read-btn">Mark All as Read</a>
-        <table class="messages-table">
-          <thead>
-            <tr>
-              <th>Full Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Message</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>John Doe</td>
-              <td>john.doe@example.com</td>
-              <td>+63 912 345 6789</td>
-              <td>Interested in volunteering for tree planting.</td>
-              <td class="actions">
-                <a href="#" class="view-btn">View</a>
-                <a href="#" class="reply-btn">Reply</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Jane Smith</td>
-              <td>jane.smith@example.com</td>
-              <td>+63 987 654 3210</td>
-              <td>Question about donation process.</td>
-              <td class="actions">
-                <a href="#" class="view-btn">View</a>
-                <a href="#" class="reply-btn">Reply</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Michael Johnson</td>
-              <td>michael.j@example.com</td>
-              <td>+63 923 456 7890</td>
-              <td>Feedback on recent project.</td>
-              <td class="actions">
-                <a href="#" class="view-btn">View</a>
-                <a href="#" class="reply-btn">Reply</a>
-              </td>
-            </tr>
-            <tr>
-              <td>Emily Davis</td>
-              <td>emily.davis@example.com</td>
-              <td>+63 945 678 1234</td>
-              <td>Want to partner for sustainability event.</td>
-              <td class="actions">
-                <a href="#" class="view-btn">View</a>
-                <a href="#" class="reply-btn">Reply</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
+    <style>
+        /* BASIC MODAL STYLES (for view button) - you should put this in your messages-style.css */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+        }
+        .messages-table .unread-status {
+            font-weight: bold;
+            color: #d9534f; /* Red */
+        }
+    </style>
 
-  <footer>
-    <p>&copy; 2025 Green Roots | Admin Panel</p>
-  </footer>
+    <script>
+        const tableBody = document.getElementById('messagesTableBody');
+        const totalCountEl = document.getElementById('totalMessagesCount');
+        const unreadCountEl = document.getElementById('unreadMessagesCount');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const messagesTable = document.querySelector('.messages-table');
+        const markAllReadBtn = document.getElementById('markAllReadBtn');
+        const modal = document.getElementById('messageModal');
+        const closeModalBtn = document.querySelector('#messageModal .close-btn');
+        const noMessagesText = document.getElementById('noMessagesText');
+        
+        // I-set ang default counts sa 0
+        totalCountEl.textContent = '0';
+        unreadCountEl.textContent = '0';
+        markAllReadBtn.style.display = 'none'; // Itago muna ang button
 
+        // Function to fetch and display data
+        async function fetchMessages() {
+            loadingIndicator.style.display = 'block';
+            messagesTable.style.display = 'none';
+            noMessagesText.style.display = 'none';
+            markAllReadBtn.style.display = 'none';
+
+            try {
+                // Tiyakin na tama ang path (dahil nasa admin folder ang script)
+                const response = await fetch('get_message_data.php');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+
+                if (data.success) {
+                    displayMessages(data.messages);
+                    fetchCounts(); 
+                    
+                    if (data.messages.length > 0) {
+                        messagesTable.style.display = 'table';
+                        markAllReadBtn.style.display = 'inline-block';
+                    } else {
+                        noMessagesText.style.display = 'block';
+                    }
+
+                } else {
+                    alert('Error loading messages: ' + data.error);
+                    noMessagesText.textContent = 'Error loading messages.';
+                    noMessagesText.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                alert('Connection error or script not found. Details: ' + error.message);
+                noMessagesText.textContent = 'Connection Error. Please check XAMPP.';
+                noMessagesText.style.display = 'block';
+            } finally {
+                loadingIndicator.style.display = 'none';
+            }
+        }
+
+        // Function to display messages in the table
+        function displayMessages(messages) {
+            tableBody.innerHTML = ''; // Clear existing rows
+            // Tiyak na dito sa function na ito, may laman na ang messages array bago ito tawagin.
+            
+            messages.forEach(msg => {
+                const isRead = msg.is_read == 1; 
+                const row = tableBody.insertRow();
+                row.className = isRead ? 'read-row' : 'unread-row';
+
+                // Status Cell
+                row.insertCell().innerHTML = `<span class="${isRead ? 'read-status' : 'unread-status'}">${isRead ? 'Read' : 'Unread'}</span>`;
+                
+                // Data Cells
+                row.insertCell().textContent = msg.full_name;
+                row.insertCell().textContent = msg.email;
+                row.insertCell().textContent = msg.subject;
+                
+                // Date Formatting
+                const date = new Date(msg.created_at);
+                row.insertCell().textContent = date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+
+                // Actions Cell
+                const actionsCell = row.insertCell();
+                actionsCell.className = 'actions';
+                
+                // VIEW Button
+                const viewBtn = document.createElement('a');
+                viewBtn.href = '#';
+                viewBtn.className = 'view-btn';
+                viewBtn.textContent = 'View';
+                viewBtn.onclick = (e) => {
+                    e.preventDefault();
+                    showModal(msg);
+                    if (!isRead) {
+                        // Mark as read when viewing, then refresh data
+                        markAsRead(msg.id, true, row); 
+                    }
+                };
+                actionsCell.appendChild(viewBtn);
+                
+                // REPLY Button
+                const replyBtn = document.createElement('a');
+                replyBtn.href = `mailto:${msg.email}?subject=RE: ${msg.subject}`; // REPLY function
+                replyBtn.className = 'reply-btn';
+                replyBtn.textContent = 'Reply';
+                replyBtn.target = '_blank'; 
+                actionsCell.appendChild(replyBtn);
+
+            });
+        }
+
+        // Function to fetch and update counts
+        async function fetchCounts() {
+            try {
+                const response = await fetch('get_message_counts.php');
+                const data = await response.json();
+
+                if (data.success) {
+                    totalCountEl.textContent = data.total;
+                    unreadCountEl.textContent = data.unread;
+                } else {
+                    console.error('Error fetching counts:', data.error);
+                    // I-set sa 0 kung may error sa pagkuha ng count
+                    totalCountEl.textContent = '0';
+                    unreadCountEl.textContent = '0';
+                }
+            } catch (error) {
+                console.error('Fetch counts error:', error);
+                // I-set sa 0 kung may error sa koneksyon
+                totalCountEl.textContent = '0';
+                unreadCountEl.textContent = '0';
+            }
+        }
+        
+        // Function to mark a single message as read/unread
+        async function markAsRead(id, isRead, rowElement = null) {
+            try {
+                const formData = new FormData();
+                formData.append('id', id);
+                formData.append('mark_read', isRead ? 1 : 0);
+
+                const response = await fetch('mark_as_read.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const result = await response.json();
+
+                if (result.success) {
+                    if (rowElement) {
+                        // Update UI for single row without full refresh
+                        const statusCell = rowElement.cells[0];
+                        statusCell.innerHTML = `<span class="read-status">Read</span>`;
+                        rowElement.className = 'read-row';
+                    }
+                    fetchCounts(); // Always refresh counts
+                } else {
+                    alert('Failed to update status: ' + result.error);
+                }
+            } catch (error) {
+                console.error('Mark as read error:', error);
+                alert('Failed to connect to mark_as_read.php');
+            }
+        }
+
+        // --- MODAL / VIEW FUNCTIONALITY ---
+        function showModal(msg) {
+            document.getElementById('modalName').textContent = msg.full_name;
+            document.getElementById('modalEmail').textContent = `(${msg.email})`;
+            document.getElementById('modalSubject').textContent = msg.subject;
+            document.getElementById('modalMessage').textContent = msg.message;
+            modalReplyBtn.onclick = () => {
+                 window.open(`mailto:${msg.email}?subject=RE: ${msg.subject}`, '_blank');
+            };
+            modal.style.display = 'flex';
+        }
+
+        closeModalBtn.onclick = () => {
+            modal.style.display = 'none';
+        };
+
+        window.onclick = (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        // --- MARK ALL AS READ FUNCTIONALITY ---
+        markAllReadBtn.addEventListener('click', async () => {
+            if (!confirm("Are you sure you want to mark ALL messages as READ?")) {
+                return;
+            }
+            
+            markAllReadBtn.disabled = true;
+            markAllReadBtn.textContent = 'Marking...';
+
+            try {
+                 const response = await fetch('get_message_data.php');
+                 const data = await response.json();
+
+                 if (data.success) {
+                     // Gumamit ng Promise.all para mas mabilis
+                     const updatePromises = data.messages.map(msg => {
+                         if (msg.is_read == 0) {
+                            const formData = new FormData();
+                            formData.append('id', msg.id);
+                            formData.append('mark_read', 1); // Set to Read
+                            return fetch('mark_as_read.php', { method: 'POST', body: formData });
+                         }
+                         return Promise.resolve(); // Ibalik ang resolved promise para sa read messages
+                     }).filter(p => p !== null); // Alisin ang null promises
+
+                     await Promise.all(updatePromises);
+                     alert("All unread messages have been marked as read.");
+                     fetchMessages(); // Refresh UI
+                 } else {
+                     alert('Error fetching unread messages for bulk update: ' + data.error);
+                 }
+
+            } catch (error) {
+                alert('An error occurred during bulk update.');
+                console.error(error);
+            } finally {
+                 markAllReadBtn.disabled = false;
+                 markAllReadBtn.textContent = 'Mark All as Read';
+            }
+        });
+
+
+        // Start fetching data when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchMessages();
+        });
+
+    </script>
 </body>
 </html>
