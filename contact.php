@@ -9,6 +9,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;900&display=swap" rel="stylesheet">
 </head>
 
@@ -59,7 +60,7 @@
                 <svg class="ci-icon" viewBox="0 0 24 24">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.16 9.81 19.79 19.79 0 0 1 .09 1.18 2 2 0 0 1 2.07 0h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L6 8a16 16 0 0 0 6 6l1.36-1.36A2 2 0 0 1 15.5 12a12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 20 14.5l2 2.42z"/>
                 </svg>
-                +63 912 345 6789
+                0956-483-6598
             </p>
 
             <p>
@@ -110,40 +111,40 @@
 </div>
 
 <footer class="fade-in">
-    <div class="footer-content">
-
-        <div class="footer-section">
-            <h3>GreenRoots</h3>
-            <p>A community-driven platform dedicated to restoring nature through tree planting and sustainable action. Connect with us to make a lasting impact, one tree at a time.</p>
-        </div>
-
-        <div class="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="donate.html">Donate</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-section">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-
+  <div class="footer-content">
+    <!-- Branding Section -->
+    <div class="footer-section">
+      <h3>GreenRoots</h3>
+      <p>A community-driven platform dedicated to restoring nature through tree planting and sustainable action. Connect with us to make a lasting impact, one tree at a time.</p>
     </div>
-
-    <div class="footer-bottom">
-        <p>© 2025 GreenRoots. All rights reserved. | Growing a Greener Tomorrow 🌿</p>
+    
+    <!-- Quick Links Section -->
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="donate.php">Donate</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
     </div>
+    
+    <!-- Social Media Section -->
+    <div class="footer-section">
+      <h4>Follow Us</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Gmail"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Bottom Copyright -->
+  <div class="footer-bottom">
+    <p>© 2025 GreenRoots. All rights reserved. | Growing a Greener Tomorrow 🌿</p>
+  </div>
 </footer>
 
 <script>

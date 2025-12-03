@@ -15,7 +15,7 @@ body {
 
 /* LOGIN BOX */
 .login-container {
-  background: url("/images/adminbg.jpg") no-repeat center center/cover;
+  background: url('../images/adminbg.jpg') no-repeat center center/cover;
   padding: 60px 50px; /* bigger padding */
   border-radius: 20px;
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
@@ -47,8 +47,9 @@ body {
 .login-container h2 {
   color: #ffffff;
   margin-bottom: 35px;
-  font-size: 26px;
+  font-size: 30px;
   letter-spacing: 1px;
+  font-weight: 800;
 }
 
 /* INPUT FIELDS */

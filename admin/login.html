@@ -10,13 +10,34 @@
 
   <div class="login-container">
     <h2>Admin Login</h2>
-    <form action="admindb.html" method="post">
+
+    <p id="errorMessage" style="color: red; font-size: big; margin-bottom: 15px;"></p>
+    <form action="login_process.php" method="post">
       <input type="text" name="username" placeholder="Enter Username" required />
       <input type="password" name="password" placeholder="Enter Password" required />
       <button type="submit">Login</button>
-    </form>
-    <p><a href="\index.html">← Back to Green Roots</a></p>
-  </div>
+      </form> 
+    
+    <p><a href="../index.html">Back to Green Roots</a></p>
+    </div>
 
+    <script>
+        // Kukunin ang URL parameters (tulad ng ?error=failed)
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error');
+        const status = urlParams.get('status');
+        const errorElement = document.getElementById('errorMessage');
+
+        // Logic para mag-display ng mensahe base sa parameter
+        if (error === 'failed') {
+            errorElement.textContent = "Invalid Username or Password. Please try again.";
+        } else if (status === 'unauthorized') {
+            // Ito ay gagamitin kung direktang in-access ang dashboard
+            errorElement.textContent = "Access denied. Please login first.";
+        }
+        
+        // Maaari mo ring tanggalin ang parameters sa URL pagkatapos ma-display ang error
+        // history.replaceState({}, document.title, window.location.pathname);
+    </script>
 </body>
 </html>

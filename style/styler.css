@@ -765,17 +765,18 @@ footer {
 
 .social-icons {
   display: flex;
-  gap: 15px;
+  gap: 35px;
+  justify-content: center;
 }
 
 .social-icons a {
   color: #ffffff;
-  font-size: 1.2rem;
-  transition: transform 0.3s ease, color 0.3s ease; /* Modern hover animation */
+  font-size: 1.8rem;
+  transition: transform 0.2s ease, color 0.2s ease; /* Modern hover animation */
 }
 
 .social-icons a:hover {
-  color: #d4edda; /* Light green hover */
+  color: #77ff38; /* Light green hover */
   transform: scale(1.1); /* Subtle scale effect */
 }
 

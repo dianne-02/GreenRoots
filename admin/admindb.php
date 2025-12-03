@@ -1,3 +1,19 @@
+<?php
+// FILE: admindb.php (Ang iyong Dashboard)
+
+// Tiyakin na sinimulan ang session
+session_start();
+
+// I-check kung naka-login ang user
+if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRUE) {
+    // Kung HINDI naka-login, idirekta pabalik sa login page
+    header("Location: login.html?status=unauthorized");
+    exit();
+}
+// Kung naka-login, ipagpatuloy ang pag-display ng HTML sa ibaba
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +26,7 @@
 
     <header>
         <h1>🌿GreenRoots Admin Dashboard</h1>
-        <a href="login.html" class="logout-btn">Logout</a>
+        <a href="logout.php" class="logout-btn">Logout</a>
     </header>
 
     <main>

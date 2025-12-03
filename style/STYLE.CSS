@@ -49,7 +49,7 @@ nav a::after {
   bottom: -5px;
   left: 0;
   background: #66bb6a;
-  transition: width 0.3s ease;
+  transition: width 0.4s ease;
 }
 
 nav a:hover::after,
@@ -661,23 +661,24 @@ footer {
 }
 
 .footer-section ul li a:hover {
-  color: #d4edda; /* Light green hover for links */
+  color: #00ff3c; /* Light green hover for links */
   text-decoration: underline;
 }
 
 .social-icons {
   display: flex;
-  gap: 15px;
+  gap: 35px;
+  justify-content: center;
 }
 
 .social-icons a {
   color: #ffffff;
-  font-size: 1.2rem;
-  transition: transform 0.3s ease, color 0.3s ease; /* Modern hover animation */
+  font-size: 1.8rem;
+  transition: transform 0.2s ease, color 0.2s ease; /* Modern hover animation */
 }
 
 .social-icons a:hover {
-  color: #d4edda; /* Light green hover */
+  color: #77ff38; /* Light green hover */
   transform: scale(1.1); /* Subtle scale effect */
 }
 
