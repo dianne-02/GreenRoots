@@ -34,7 +34,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRU
             <h2>Admin Menu</h2>
             <ul>
                 <li><a href="#" class="active">Dashboard</a></li>
-                <li><a href="donations.html">Donations</a></li>
+                <li><a href="donations.php">Donations</a></li>
                 <li><a href="messages.html">Messages</a></li>
             </ul>
         </aside>
@@ -46,25 +46,19 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRU
             <div class="cards">
                 <div class="card">
                     <h3>Total Donations</h3>
-                    <p>₱52,430</p> 
-                    <!-- Mananatili itong hardcoded for now -->
+                    <p id="dashboardTotalDonations">₱0</p>
                 </div>
                 <div class="card">
                     <h3>Messages Received</h3>
                     <p id="dashboardMessagesCount">0</p> 
-                    <!-- BINAGO: Ang default value ay 0 -->
                 </div>
             </div>
 
             <div class="activity">
                 <h3>Recent Activities</h3>
                 <ul id="recentActivityList">
-                    <!-- Dynamic activity items for demonstration -->
-                    <li>New project “Clean River Drive” added</li>
-                    <li>5 new volunteers joined</li>
                     <li id="recentMessageActivity">0 new messages received</li> 
-                    <!-- BINAGO: Ang default activity message ay 0 -->
-                    <li>₱1,000 donation from “Eco Life Org”</li>
+                    <li id="recentDonationActivity">No recent donations</li>        
                 </ul>
             </div>
         </section>
@@ -78,6 +72,11 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRU
         // Element IDs para sa Dashboard
         const dashboardCountEl = document.getElementById('dashboardMessagesCount');
         const recentMessageActivityEl = document.getElementById('recentMessageActivity');
+
+        // *** CORRECTION: Idinagdag ang missing variables ***
+        const dashboardTotalDonationsEl = document.getElementById('dashboardTotalDonations');
+        const recentActivityListEl = document.getElementById('recentActivityList');
+        // ************************************************
 
         // Function para kunin at i-update ang message counts
         async function fetchDashboardCounts() {
@@ -112,8 +111,59 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRU
                 recentMessageActivityEl.textContent = '0 new messages received';
             }
         }
+        
+        // BAGONG FUNCTION: Para sa Donation Data
+        async function fetchDonationData() {
+            try {
+                const response = await fetch('get_donation_data.php');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
 
-        document.addEventListener('DOMContentLoaded', fetchDashboardCounts);
+                const data = await response.json();
+
+                if (data.success) {
+                    // Update Total Donations
+                    // Gagamit na ngayon ng defined variable: dashboardTotalDonationsEl
+                    dashboardTotalDonationsEl.textContent = `₱${data.total_donations}`;
+                    
+                    // Update Recent Activities (Mag-pop up lang ang pinaka-recent)
+                    if (data.recent_donations.length > 0) {
+                        const mostRecent = data.recent_donations[0];
+                        
+                        const existingActivity = document.getElementById('recentDonationActivity');
+                        if (existingActivity) {
+                            existingActivity.textContent = `₱${mostRecent.amount_formatted.replace('₱', '')} donation from "${mostRecent.donor_name}"`;
+                            existingActivity.style.fontWeight = 'bold'; // I-bold para mapansin
+                        }
+
+                    } else {
+                        // Kung walang donation, ibalik sa default
+                        const existingActivity = document.getElementById('recentDonationActivity');
+                        if (existingActivity) {
+                            existingActivity.textContent = 'No recent donations';
+                            existingActivity.style.fontWeight = 'normal';
+                        }
+                    }
+
+                } else {
+                    console.error('Error fetching donation data:', data.error);
+                    // Set default value if data fetching fails
+                    dashboardTotalDonationsEl.textContent = '₱0';
+                }
+            } catch (error) {
+                console.error('Fetch donations error:', error);
+                // Set default value if fetch connection fails
+                dashboardTotalDonationsEl.textContent = '₱0';
+            }
+        }
+        
+       // I-run ang parehong functions sa DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchDashboardCounts();
+            fetchDonationData(); 
+        });
     </script>
 </body>
 </html>

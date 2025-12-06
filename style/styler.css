@@ -175,6 +175,19 @@ nav a.active {
   box-shadow: 0 0 0 3px rgba(0, 120, 6, 0.1);
 }
 
+ .contact-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px; /* Space before next label/input */
+        }
+        .contact-input-group select {
+            flex-grow: 0;
+            width: 100px; /* Fixed width for country code */
+        }
+        .contact-input-group input[type="tel"] {
+            flex-grow: 1; /* Takes up remaining space */
+        }
+
 .donation-form button {
   display: block;
   margin: 0 auto;

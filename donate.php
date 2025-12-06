@@ -136,19 +136,16 @@
   </div>
 </footer>
 
-    <style>
-        .contact-input-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px; /* Space before next label/input */
-        }
-        .contact-input-group select {
-            flex-grow: 0;
-            width: 100px; /* Fixed width for country code */
-        }
-        .contact-input-group input[type="tel"] {
-            flex-grow: 1; /* Takes up remaining space */
-        }
-    </style>
+<div id="successPopup" class="popup hidden">
+    <div class="popup-content">
+        <i class="fas fa-seedling" style="font-size: 3rem; color: #4CAF50; margin-bottom: 15px;"></i>
+        <h2>Thank You, GreenRoots Supporter!</h2>
+        <p>Your donation is processed! Thank you for helping us plant a greener future.</p>
+        <button id="closePopup">Continue</button>
+    </div>
+</div>
+<script src="jason.js"></script> 
+
+
     </body>
 </html>

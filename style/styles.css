@@ -106,7 +106,6 @@ nav a.active {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
   border-radius: var(--border-radius);
   backdrop-filter: blur(10px);
-  margin-bottom: 50px;
 }
 
 .services h1 {
@@ -128,10 +127,140 @@ font-size: 3rem;
   font-weight: 400;
 }
 
+/* --- NEW SECTION: Nature Advocacy (Modern & Minimalist Redesign) --- */
+
+.advocacy-section {
+    max-width: 100%;
+    margin: 80px 0;
+    margin-bottom: 14%;
+    padding: 90px 4%; 
+    text-align: center;
+    color: #333;
+    
+    /* Clean, almost white background */
+    background-color: #ffffff; 
+    
+    /* Subtle geometric separator */
+    border-top: 1px solid #E0E0E0; 
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.advocacy-content {
+    max-width: 1000px; /* Wider content area */
+    margin: 0 auto;
+}
+
+.advocacy-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #2E7D32; /* Deep Green */
+    margin-bottom: 25px;
+    line-height: 1.1;
+    text-transform: uppercase; /* Modern touch */
+    letter-spacing: 2px;
+}
+
+.advocacy-tagline {
+    font-size: 1.25rem;
+    color: #666;
+    margin-bottom: 60px; /* More spacing */
+    font-weight: 400;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.advocacy-tagline strong {
+    font-weight: 700;
+    color: #4CAF50; 
+}
+
+/* Three distinct columns using a Flexbox Grid */
+.advocacy-points {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.advocacy-item {
+    flex-basis: 30%; 
+    padding: 10px;
+    text-align: left; /* Aligns text left within the item */
+    border-left: 3px solid #81C784; /* Vertical accent line for each point */
+    padding-left: 15px;
+}
+
+.advocacy-item i {
+    font-size: 1.5rem; /* Smaller, cleaner icon size */
+    color: #4CAF50; 
+    margin-bottom: 10px;
+    display: block; /* Ensures icon is on its own line */
+}
+
+.advocacy-item strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.advocacy-item p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 992px) {
+    .advocacy-title {
+        font-size: 2.2rem;
+    }
+    .advocacy-points {
+        flex-wrap: wrap; 
+        gap: 30px;
+        border-bottom: none;
+    }
+    .advocacy-item {
+        flex-basis: 45%; /* Two items per row on tablets */
+        border-bottom: 1px solid #E0E0E0;
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .advocacy-section {
+        padding: 60px 4%;
+        margin: 40px 0;
+    }
+    .advocacy-title {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    .advocacy-points {
+        flex-direction: column; /* Stack all points vertically on mobile */
+    }
+    .advocacy-item {
+        flex-basis: 100%;
+        text-align: center; /* Center text when stacked */
+        border-left: none; /* Remove left accent line when stacked */
+        border-bottom: 1px solid #E0E0E0;
+        padding: 15px 0;
+    }
+    .advocacy-item i {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
+  margin-bottom: 13%;
 }
 
 .service {

@@ -1,50 +1,49 @@
 <?php
-// Tiyakin na ang 'db.php' ay tama ang koneksyon sa database ($conn)
-require 'db.php'; 
+// 1. I-include ang tamang file name. Ang $conn ay galing na sa db.php
+require_once 'db.php'; 
 
-// 1. INPUT VALIDATION: Siguraduhin na ang form ay na-submit via POST at may laman ang fields.
-if ($_SERVER["REQUEST_METHOD"] == "POST" && 
-    isset($_POST['name'], $_POST['email'], $_POST['contact'], $_POST['amount'])) {
+// Check if the form was submitted using the POST method
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    // 2. KUNIN ANG DATA AT I-SANITIZE
-    // Kapag gumagamit ng prepared statements, hindi kailangan ang manual sanitization.
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $contact = $_POST['contact'];
-    // I-convert sa float ang amount (para sigurado na number ang input)
-    $amount = (float)$_POST['amount']; 
+    // 2. Collect and Sanitize the data, gamit ang Procedural na function: mysqli_real_escape_string($conn, $data)
+    $donor_name = mysqli_real_escape_string($conn, trim($_POST['donor_name']));
+    $email = mysqli_real_escape_string($conn, trim($_POST['email']));
+    $country_code = mysqli_real_escape_string($conn, trim($_POST['country_code']));
+    $contact = mysqli_real_escape_string($conn, trim($_POST['contact']));
+    
+    // Validate the amount (ensures it's a valid positive number)
+    $amount = filter_var(trim($_POST['amount']), FILTER_VALIDATE_FLOAT);
+    
+    // Combine the contact number
+    $full_contact = $country_code . $contact;
 
-    // 3. PREPARED STATEMENT: Ito ang pinakaligtas na paraan (anti-SQL Injection).
-    // PALITAN ang 'donations' ng tamang table name kung iba ang gamit ninyo.
-    // Tiyakin na ang column names (full_name, email, contact_number, donation_amount) ay tugma.
-    $sql = "INSERT INTO donations (full_name, email, contact_number, donation_amount)
-            VALUES (?, ?, ?, ?)";
-
-    // I-prepare ang statement
-    if ($stmt = $conn->prepare($sql)) {
-        // I-bind ang parameters: 's' para sa string (name, email, contact), 'd' para sa double/decimal (amount)
-        $stmt->bind_param("sssd", $name, $email, $contact, $amount);
-        
-        // I-execute
-        if ($stmt->execute()) {
-            // Success
-            echo "success"; 
-        } else {
-            // Failed to execute query
-            error_log("Database error: " . $stmt->error);
-            echo "error: Failed to save donation.";
-        }
-
-        // Isara ang statement
-        $stmt->close();
+    // 3. Basic Validation
+    if (empty($donor_name) || empty($email) || empty($contact) || $amount === false || $amount <= 0) {
+        header("Location: donate.php?status=error");
+        exit;
+    }
+    
+    // 4. Prepare the SQL INSERT statement
+    $sql = "INSERT INTO donations (donor_name, email, contact, amount, donation_date)
+            VALUES ('$donor_name', '$email', '$full_contact', '$amount', NOW())";
+            
+    // 5. Execute the query, gamit ang Procedural na function: mysqli_query($conn, $sql)
+    if (mysqli_query($conn, $sql)) {
+        // Success
+        header("Location: donate.php?status=success");
+        exit;
     } else {
-        // Failed to prepare statement
-        error_log("Prepared statement error: " . $conn->error);
-        echo "error: System error occurred.";
+        // Failure
+        header("Location: donate.php?status=error");
+        exit;
     }
 
+    // 6. Close the database connection
+    mysqli_close($conn);
+
 } else {
-    // Ito ang lalabas kung in-access ng diretso ang script o may kulang na field
-    echo "error: Invalid request or missing donation details.";
+    // Direct access blocked
+    header("Location: donate.php");
+    exit;
 }
 ?>

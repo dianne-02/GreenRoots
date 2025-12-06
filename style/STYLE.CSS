@@ -85,7 +85,7 @@ nav a.active {
 .hero {
   position: relative;
   padding: 140px 50px;
-  background: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center center / cover no-repeat;
+  background: url('..//images/hoy.png') center center / cover no-repeat;
   border-radius: 5px 5px 20px 20px;
   color: #fff;
   text-align: center;
@@ -193,6 +193,111 @@ nav a.active {
   font-size: 1.1rem;
 }
 
+/* --- NEW SECTION: Environmental Issue & Evidence (Nature-Themed Redesign) --- */
+.issue-evidence-section {
+    display: flex;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 80px auto;
+    margin-top: 10%;
+    padding: 60px 4%; 
+    
+    /* Light, natural background */
+    background-color: #fbfdf9; /* Very subtle off-white/light green tint */
+    color: #333; /* Dark text on light background */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(76, 175, 80, 0.08); /* Soft shadow using the green color */
+    overflow: hidden; 
+}
+
+/* Content Area (Text and Evidence Points) */
+.issue-content {
+    flex: 1;
+    padding: 10px 0;
+}
+
+.issue-title {
+    color: #2E7D32; /* Deep Green for the main title */
+    font-size: 2.6rem;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.issue-intro {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 40px;
+    /* Stronger vertical accent line */
+    border-left: 5px solid #81C784; 
+    padding-left: 20px;
+}
+
+.issue-evidence-point {
+    display: flex;  
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #ffffff; /* White background for evidence cards */
+    border: 1px solid #94ea77;
+}
+
+.issue-evidence-point i {
+    color: #4CAF50; /* Main Green color for icons */
+    font-size: 1.8rem;
+    margin-right: 20px;
+    padding-top: 5px;
+}
+
+.issue-evidence-point p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+}
+
+.issue-evidence-point p strong {
+    font-weight: 700;
+    color: #333;
+}
+
+/* Image Container (Right Side) */
+.issue-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.issue-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    /* Soft shadow to make the image float slightly */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); 
+    border: 5px solid #fff; /* White border to lift it */
+}
+
+/* --- Responsive Adjustments (Kept the stacking for mobile) --- */
+@media (max-width: 992px) {
+    .issue-evidence-section {
+        flex-direction: column; 
+        margin: 40px 4%;
+        padding: 40px 6%;
+        gap: 30px;
+    }
+    .issue-content {
+        padding: 0;
+    }
+    .issue-title {
+        font-size: 1.8rem;
+    }
+    .issue-evidence-point {
+        margin-bottom: 15px;
+    }
+}
+
+
 #impact {
   text-align: center;
   padding: 80px 30px;
@@ -289,7 +394,8 @@ nav a.active {
 }
 
 #testimonials {
-  background: url('https://tinyurl.com/2p9wpvak') center center / cover no-repeat;
+background: url('../images/labad.png') center center / cover no-repeat;
+  position: relative;
   padding: 80px 20px;
   text-align: center;
   border-radius: 20px;
@@ -415,9 +521,105 @@ blockquote span {
 .hero-text { flex: 1; padding: 60px 40px; }
 .hero-text h1 { font-size: 2.5rem; font-weight: 900; margin-bottom: 15px; background: linear-gradient(45deg, var(--dark), var(--secondary)); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .hero-text p { font-size: 1.1rem; color: #245c24; }
-.hero-image { flex: 1; height: 50vh; background: url("https://images.unsplash.com/photo-1587502536263-2a4a6809b117?auto=format&fit=crop&w=1200&q=80") center/cover no-repeat; clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%); }
+.hero-image { flex: 1; height: 50vh; background: url("../images/aboutpagehero.png") center/cover no-repeat; clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%); }
 .cta-button { display: inline-block; background: linear-gradient(45deg, var(--secondary), var(--primary)); color: #fff; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 15px; transition: var(--trans); }
 .cta-button:hover { transform: translateY(-2px); box-shadow: 0 5px 10px var(--shadow); }
+
+
+/* =============================== */
+/* 1. LAYOUT & ALIGNMENT (The main trick) */
+/* =============================== */
+.intro-container {
+    display: flex;
+    justify-content: space-between; /* Spreads the image and the card apart */
+    align-items: stretch;          /* **CRITICAL:** Makes both items the same height */
+    max-width: 1200px;             /* Keeps the section centered and clean */
+    margin: 80px auto;             /* Adds space above/below and centers the container */
+    padding: 0 4%;                 /* Inner padding for screen edges */
+    gap: 40px;                     /* Spacing between the image and the card */
+}
+
+/* =============================== */
+/* 2. IMAGE STYLES (Left Side) */
+/* =============================== */
+.intro-image-wrapper {
+    flex: 1; /* Allows the image wrapper to take up half the space */
+    min-width: 0; /* Important for flex-basis calculations */
+}
+
+.intro-image {
+    width: 100%;
+    height: 100%; /* Stretches the image to the height of the card */
+    object-fit: cover; /* Ensures the image covers the area without stretching the content */
+    border-radius: 16px; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================== */
+/* 3. CARD STYLES (Right Side) */
+/* =============================== */
+.intro-card {
+    flex: 1; /* Allows the card to take up the other half of the space */
+    
+    /* Design Aesthetics */
+    background: #ffffff;
+    padding: 50px 40px; 
+    border-radius: 16px;       
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); 
+    
+    /* Accent Bar Change: Moving the green accent to the right side of the card */
+    border-right: 10px solid #4CAF50; /* A wider, more prominent bar */
+    border-left: none; /* Remove the old left border if it was there */
+}
+
+/* =============================== */
+/* 4. TYPOGRAPHY (From previous request) */
+/* =============================== */
+.section-subtitle.highlight-green {
+    color: #2E7D32;           
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-text {
+    font-size: 1.1rem;
+    line-height: 1.7;         
+    color: #555;              
+    margin-bottom: 20px;
+}
+
+.fancy {
+    font-style: italic;
+    font-weight: 300;
+}
+
+.fancy-strong {
+    font-weight: 600;
+    color: #333;             
+}
+
+
+/* =============================== */
+/* 5. RESPONSIVENESS: Stacking on Mobile */
+/* =============================== */
+@media (max-width: 992px) {
+    .intro-container {
+        flex-direction: column; /* Stack the image on top of the card */
+        margin: 40px auto;
+        gap: 30px;
+    }
+    .intro-card {
+        padding: 30px 25px;
+        border-right: none;
+        border-left: 6px solid #4CAF50; /* Add a green accent back to the left for mobile */
+    }
+    .intro-image {
+        height: auto; /* Allow image to scale normally on mobile */
+    }
+}
 
 /* Mission */
 #about-mission { 
