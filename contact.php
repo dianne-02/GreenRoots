@@ -53,7 +53,7 @@
                     <path d="M4 4h16v16H4z"/>
                     <polyline points="4,4 12,13 20,4"/>
                 </svg>
-                info@greenroots.org
+                greenroots157@gmail.com
             </p>
 
             <p>
@@ -68,7 +68,7 @@
                     <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/>
                     <circle cx="12" cy="10" r="3"/>
                 </svg>
-                123 Green Lane, Eco City, Philippines
+                Purok Tambac Brgy. Macambol, Mati City Davao Oriental, Philippines
             </p>
 
             <p>We’re here to help with inquiries about our projects, donations, or partnerships.</p>
@@ -135,8 +135,9 @@
     <div class="footer-section">
       <h4>Follow Us</h4>
       <div class="social-icons">
-        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" aria-label="Gmail"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61584558730700" aria-label="Facebook"  target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=greenroots157@gmail.com" aria-label="Gmail"  target="_blank"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.youtube.com/@GreenRoot-d5q" aria-label="YouTube"  target="_blank"><i class="fab fa-youtube"></i></a>
       </div>
     </div>
   </div>

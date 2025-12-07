@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messages | Green Roots</title>
-    <!-- Assuming messages-style.css and other CSS links are correct -->
     <link rel="stylesheet" href="messages-style.css"> 
     <link rel="stylesheet" href="admindb-style.css"> 
 </head>
@@ -32,12 +31,10 @@
             <div class="cards">
                 <div class="card">
                     <h3>Total Messages</h3>
-                    <!-- Default value ay 0 -->
                     <p id="totalMessagesCount">0</p> 
                 </div>
                 <div class="card unread-card">
                     <h3>Unread Messages</h3>
-                    <!-- Default value ay 0 -->
                     <p id="unreadMessagesCount">0</p> 
                 </div>
             </div>
@@ -58,16 +55,13 @@
                         </tr>
                     </thead>
                     <tbody id="messagesTableBody">
-                        <!-- Data will be populated here by JavaScript -->
-                    </tbody>
+                        </tbody>
                 </table>
-                <!-- Ipakita ito kung walang messages -->
                 <p id="noMessagesText" style="text-align: center; padding: 20px; font-style: italic;">No messages received yet.</p>
             </div>
         </section>
     </main>
 
-    <!-- Modal for Viewing Message (VIEW button action) -->
     <div id="messageModal" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -76,57 +70,12 @@
             <p><strong>Subject:</strong> <span id="modalSubject"></span></p>
             <hr>
             <p id="modalMessage"></p>
-            <div style="text-align: right; margin-top: 20px;">
-                <button id="modalReplyBtn" class="reply-btn">Reply via Email</button>
             </div>
-        </div>
     </div>
     
     <footer>
         <p>&copy; 2025 Green Roots | Admin Panel</p>
     </footer>
-
-    <style>
-        /* BASIC MODAL STYLES (for view button) - you should put this in your messages-style.css */
-        .modal {
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            padding: 30px;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 600px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            position: relative;
-        }
-        .close-btn {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close-btn:hover,
-        .close-btn:focus {
-            color: #000;
-            text-decoration: none;
-        }
-        .messages-table .unread-status {
-            font-weight: bold;
-            color: #d9534f; /* Red */
-        }
-    </style>
 
     <script>
         const tableBody = document.getElementById('messagesTableBody');
@@ -228,13 +177,15 @@
                 };
                 actionsCell.appendChild(viewBtn);
                 
-                // REPLY Button
+                // TINANGGAL ANG REPLY Button DITO SA TABLE
+                /*
                 const replyBtn = document.createElement('a');
                 replyBtn.href = `mailto:${msg.email}?subject=RE: ${msg.subject}`; // REPLY function
                 replyBtn.className = 'reply-btn';
                 replyBtn.textContent = 'Reply';
                 replyBtn.target = '_blank'; 
                 actionsCell.appendChild(replyBtn);
+                */
 
             });
         }
@@ -298,9 +249,14 @@
             document.getElementById('modalEmail').textContent = `(${msg.email})`;
             document.getElementById('modalSubject').textContent = msg.subject;
             document.getElementById('modalMessage').textContent = msg.message;
+            
+            // TINANGGAL ANG ONCLICK FUNCTION PARA SA MODAL REPLY BUTTON
+            /*
             modalReplyBtn.onclick = () => {
                  window.open(`mailto:${msg.email}?subject=RE: ${msg.subject}`, '_blank');
             };
+            */
+            
             modal.style.display = 'flex';
         }
 
@@ -324,34 +280,34 @@
             markAllReadBtn.textContent = 'Marking...';
 
             try {
-                 const response = await fetch('get_message_data.php');
-                 const data = await response.json();
+                const response = await fetch('get_message_data.php');
+                const data = await response.json();
 
-                 if (data.success) {
-                     // Gumamit ng Promise.all para mas mabilis
-                     const updatePromises = data.messages.map(msg => {
-                         if (msg.is_read == 0) {
+                if (data.success) {
+                    // Gumamit ng Promise.all para mas mabilis
+                    const updatePromises = data.messages.map(msg => {
+                        if (msg.is_read == 0) {
                             const formData = new FormData();
                             formData.append('id', msg.id);
                             formData.append('mark_read', 1); // Set to Read
                             return fetch('mark_as_read.php', { method: 'POST', body: formData });
-                         }
-                         return Promise.resolve(); // Ibalik ang resolved promise para sa read messages
-                     }).filter(p => p !== null); // Alisin ang null promises
+                        }
+                        return Promise.resolve(); // Ibalik ang resolved promise para sa read messages
+                    }).filter(p => p !== null); // Alisin ang null promises
 
-                     await Promise.all(updatePromises);
-                     alert("All unread messages have been marked as read.");
-                     fetchMessages(); // Refresh UI
-                 } else {
-                     alert('Error fetching unread messages for bulk update: ' + data.error);
-                 }
+                    await Promise.all(updatePromises);
+                    alert("All unread messages have been marked as read.");
+                    fetchMessages(); // Refresh UI
+                } else {
+                    alert('Error fetching unread messages for bulk update: ' + data.error);
+                }
 
             } catch (error) {
                 alert('An error occurred during bulk update.');
                 console.error(error);
             } finally {
-                 markAllReadBtn.disabled = false;
-                 markAllReadBtn.textContent = 'Mark All as Read';
+                markAllReadBtn.disabled = false;
+                markAllReadBtn.textContent = 'Mark All as Read';
             }
         });
 

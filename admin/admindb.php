@@ -73,7 +73,6 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRU
         const dashboardCountEl = document.getElementById('dashboardMessagesCount');
         const recentMessageActivityEl = document.getElementById('recentMessageActivity');
 
-        // *** CORRECTION: Idinagdag ang missing variables ***
         const dashboardTotalDonationsEl = document.getElementById('dashboardTotalDonations');
         const recentActivityListEl = document.getElementById('recentActivityList');
         // ************************************************
