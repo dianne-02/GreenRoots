@@ -1,5 +1,5 @@
 <?php
-// FILE: export_donations.php (FINAL VERSION based on your table structure)
+// FILE: export_donations.php 
 
 $conn = require_once '../db.php'; 
 
@@ -16,7 +16,7 @@ $output = fopen('php://output', 'w');
 // I-set ang CSV header row, using 'Contact' and 'Date' for readability
 fputcsv($output, array('ID', 'Donor Name', 'Email', 'Contact', 'Amount', 'Date Donated', 'Status')); 
 
-// Kukunin ang lahat ng donations (REMOVED 'status' from SELECT)
+// KUHAON ang lahat ng donations (REMOVED 'status' from SELECT)
 $sql = "SELECT id, donor_name, email, contact, amount, donation_date FROM donations ORDER BY donation_date DESC";
 $result = $conn->query($sql);
 

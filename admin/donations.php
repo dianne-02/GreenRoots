@@ -1,12 +1,6 @@
 <?php
 // FILE: donations.php
 
-// Tiyakin na sinimulan ang session at naka-login ang admin (Kung gusto mo, idagdag ang logic dito)
-// session_start();
-// if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRUE) {
-//     header("Location: login.html?status=unauthorized");
-//     exit();
-// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,42 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donations | Green Roots</title>
     <link rel="stylesheet" href="donations-style.css">
-    <style>
-        /* Basic modal styles - you can move this to donations-style.css if preferred */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0,0,0);
-            background-color: rgba(0,0,0,0.4);
-            padding-top: 60px;
-        }
-        .modal-content {
-            background-color: #fefefe;
-            margin: 5% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 500px;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
 

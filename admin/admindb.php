@@ -1,16 +1,16 @@
 <?php
-// FILE: admindb.php (Ang iyong Dashboard)
+// FILE: admindb.php
 
-// Tiyakin na sinimulan ang session
+// MAKE SURE NA MAG START ANG SESSION!!!
 session_start();
 
 // I-check kung naka-login ang user
 if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRUE) {
-    // Kung HINDI naka-login, idirekta pabalik sa login page
+    // Kung HINDI naka-login, DIRECT DAYUN SA LOGIN PAGE
     header("Location: login.html?status=unauthorized");
     exit();
 }
-// Kung naka-login, ipagpatuloy ang pag-display ng HTML sa ibaba
+// Kung naka-login, padayon na sha  
 ?>
 
 
@@ -77,10 +77,10 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRU
         const recentActivityListEl = document.getElementById('recentActivityList');
         // ************************************************
 
-        // Function para kunin at i-update ang message counts
+        // Function para kunin ug i-update ang message counts
         async function fetchDashboardCounts() {
             try {
-                // Tiyakin na ang path ay tama (script ay nasa parehong 'admin/' folder)
+
                 const response = await fetch('get_message_counts.php');
                 
                 if (!response.ok) {
@@ -90,7 +90,7 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRU
                 const data = await response.json();
 
                 if (data.success) {
-                    // Ang data.total ay magiging '0' kung walang laman ang database (na tama)
+                    // Ang data.total kay ma '0' kung walang laman ang database (na tama)
                     dashboardCountEl.textContent = data.total;
                     
                     // I-update ang recent activity
@@ -98,20 +98,19 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRU
                     recentMessageActivityEl.style.fontWeight = data.unread > 0 ? 'bold' : 'normal';
 
                 } else {
-                    // Kung may error sa PHP, gawing '0' ang display
+                    // Kung may error sa PHP, i '0' ang display
                     dashboardCountEl.textContent = '0'; 
                     recentMessageActivityEl.textContent = '0 new messages received';
                     console.error('Error fetching dashboard counts:', data.error);
                 }
             } catch (error) {
-                // Kung may connection error, gawing '0' ang display
+                // Kung may connection error, i '0' ang display
                 console.error('Fetch counts error:', error);
                 dashboardCountEl.textContent = '0'; 
                 recentMessageActivityEl.textContent = '0 new messages received';
             }
         }
         
-        // BAGONG FUNCTION: Para sa Donation Data
         async function fetchDonationData() {
             try {
                 const response = await fetch('get_donation_data.php');
@@ -134,11 +133,11 @@ if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== TRU
                         const existingActivity = document.getElementById('recentDonationActivity');
                         if (existingActivity) {
                             existingActivity.textContent = `₱${mostRecent.amount_formatted.replace('₱', '')} donation from "${mostRecent.donor_name}"`;
-                            existingActivity.style.fontWeight = 'bold'; // I-bold para mapansin
+                            existingActivity.style.fontWeight = 'bold'; // I-bold para mapansin sha dayun
                         }
 
                     } else {
-                        // Kung walang donation, ibalik sa default
+                        // Kung way donation, ibalik sa default
                         const existingActivity = document.getElementById('recentDonationActivity');
                         if (existingActivity) {
                             existingActivity.textContent = 'No recent donations';
